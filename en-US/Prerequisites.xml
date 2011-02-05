@@ -135,10 +135,19 @@
              </row>
 
 
-
           </tbody>
         </tgroup>
     </table>
+<note>
+	<para>Hardware should be certified to work by the hypervisor vendor. See the vendor's documentation for more information</para>
+	<para>Red Hat maintains this information at: <ulink url="https://hardware.redhat.com">https://hardware.redhat.com</ulink></para>
+	<para>Citrix maintains Xen hardware compatibility at: <ulink url="http://hcl.xensource.com">http://hcl.xensource.com</ulink></para>
+	<para>VMware's hardware compatibility guide is at: <ulink url="http://www.vmware.com/resources/compatibility/search.php">http://www.vmware.com/resources/compatibility/search.php</ulink></para>
+</note>
+
+<important>
+	<para>XenServer 5.6 FP1 is not yet supported</para>
+</important>
 
 	</para>
 	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_1">

@@ -1,0 +1,63 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-CloudStack_Quick_Install_Guide-Management_server_install">
+        <title>Management Server Installation</title>
+	<para>The Cloud.com Management Server download includes everything you need to get started, 
+	except MySQL. This includes the Cloud.com software as well as dependencies. This section 
+	describes installing one or more Management Servers with one instance of MySQL, which may 
+	be on a different node from the Management Servers. The procedure for the installation is:
+		<orderedlist>
+			<listitem>
+				<para>Prepare the operating system</para>
+			</listitem>
+			<listitem>
+				<para>Install and configure the management server</para>
+			</listitem>
+			<listitem>
+				<para>Install and configure MySQL</para>
+			</listitem>
+		</orderedlist>
+	</para>	
+	<section>
+		<title>Operating System Preparation</title>
+		<para>The Cloud.com Management Server requires RHEL/CentOS 5.4 64 bit or later. 
+		The OS must be prepared to host the Management Server using the following steps. 
+		<para>
+		<note>
+			<para>NTP configuration is highly recommended. Installing and configuring <application>ntp</application> or <application>chrony</application> should be done on all hosts</para>
+		</note>
+		
+		<orderedlist>
+			<listitem>
+				<para>Edit the <filename>/etc/hosts</filename> file to make sure that the Management Server has a fully-qualified host name that resolves to an IP address.</para>
+				<note>
+					<para> The above will make the management server, but in a production environment the host name should be configured via DNS</para>
+				</note>
+			</listitem>
+			<listitem>
+				<para>Log in as root. All the subsequent steps should be run as root.</para>
+			</listitem>
+			<listitem>
+				<para>Ensure that the SELINUX variable in <filename>/etc/selinux/config</filename> is set to permissive.</para>
+			</listitem>
+			<listitem>
+				<para>Run the following command to disable <application>SELinux</application> in the current session. </para>
+				<programlisting>
+				# setenforce permissive
+				</programlisting>
+				<note> <para>Performing both of the above steps is mandatory to avoid a reboot.</para></note>
+			</listitem>
+			<listitem>
+				<para>Make sure that the Management Server can reach the Internet.</para>
+				<programlisting>
+				# ping www.google.com
+				</programlisting>
+			</listitem>
+		</orderedlist>	
+
+	</section>	
+
+</chapter>
