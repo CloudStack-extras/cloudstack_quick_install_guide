@@ -6,28 +6,11 @@
 <chapter id="chap-CloudStack_Quick_Install_Guide-Support-Chapter">
 	<title>Support</title>
 	<para>
-		This is a test paragraph
+		Cloudstack is supported by the community of Cloudstack users and contributors. You can gain access and contribute to 
+		this support by utilizing the forums (<<ulink url="http://cloud.com/forums/">http://cloud.com/forums</ulink>) and 
+		Bugzilla (<ulink url="http://bugs.cloud.com">http://bugs.cloud.com</ulink>)
 	</para>
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
-	
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						listitem text
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+	<para>Users needing commercial support should contact Cloud.com to enquire about commercial support subscriptions</para>
 
 </chapter>
-
+	
