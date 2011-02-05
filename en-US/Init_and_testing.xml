@@ -3,31 +3,78 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-CloudStack_Quick_Install_Guide-Test_Chapter">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
+<chapter id="chap-CloudStack_Quick_Install_Guide-Init_and_testing_Chapter">
+	<title>Initialization and Testing</title>
+	<para>You should have one Java process running the Cloud.com software on the Management Server. This is the Management Server process. </para>
+	<para>After everything is configured the CloudStack will perform its initialization. This can take 30 minutes or more depending on 
+		the speed of your network. During this initialization process several things happen:
+		<itemizedlist>
+			<listitem>
+				<para>The CloudStack will start the Secondary Storage VM and Console Proxy VM from the system 
+				VM template downloaded into each Zone. In the System Section, Virtual Resources, System VMs 
+				section you will see the status of these VMs listed first as Creating, then as Starting, then 
+				as Running. You can click on Refresh is the upper right to update the status.
+				</para>
+			</listitem>
+			<listitem>
+				<para>After the Secondary Storage VM is running the Management Server will initiate the downloads 
+				of the CentOS templates.  One is downloaded for each hypervisor type. The Management Server 
+				requests that the Secondary Storage VM perform this download. You can go to the Templates tab to 
+				check the status of this download.  Go to Templates then My Templates when logged in as admin.  
+				The status will show “Storage agent or storage VM disconnected” until the Secondary Storage VM is 
+				running. Then the status will change to show that the download is in progress. You can click Refresh 
+				to update the download percentages.  
+				</para>
+			</listitem>
+			<listitem>
+				<para>Once the CentOS templates are downloaded they will be uncompressed by the Secondary Storage VM. 
+				This is a large file and this operation will take several minutes. The Management Server will then 
+				update each template’s status to Ready.
+				</para>
+			</listitem>
+		</itemizedlist>
 	</para>
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
-		</para>
-	</section>
+	<para>If these steps do not work you should see the Troubleshooting section below, or contact support for assistance.</para>
+	<important>
+		<para>If these steps do not work further testing will not be successful.  You must resolve the above issues before proceeding.</para>
+	</important>
 	
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
+	<para>Once the CloudStack has performed initialization, use the following steps to try creating a new virtual machine. 
+		<orderedlist>
+			<listitem>
+				<para>Create a new user account.  Click on Accounts and then My Accounts.  Click "Add Account" at the top. This tool allows you to create end user accounts, domain administrators, and global administrators, as well new domains.  Follow the steps to create a new user.  
+				</para>
+			</listitem>
+			<listitem>
+				<para>Optionally logout and login as the new user.  To log in as an end user account, go to http://managementserver:8080/client. This URL displays the end user UI or the admin UI based on the access level of the authenticated account.
+				</para>
+			</listitem>
+			<listitem>
+				<para>Go to the Instances tab.  Click on My Instances. </para>
+			</listitem>
+			<listitem>
+				<para>Click the button to create a new VM and follow the steps in the wizard.  </para>
+			<itemizedlist>
 				<listitem>
-					<para>
-						listitem text
-					</para>
+					<para>The template selection screen requires selecting a template.  At this point you likely have only the provided CentOS template available.</para>
 				</listitem>
-			</orderedlist>
-		</para>
-	</section>
-
+				<listitem>
+					<para>Select a service offering.  Be sure that the hardware you have allows starting the selected service offering.</para>
+				</listitem>
+				<listitem>
+					<para>Add any additional "data disk".  This is a second volume that will be available to but not mounted in the guest.  For example, in Linux on XenServer you will see /dev/xvdb in the guest.</para>
+				</listitem>
+				<listitem>
+					<para>Choose the primary network for the guest.  Most likely you have only one option here.  But if you entered additional networks as in the direct tagged case you may have more than one option.  You must pick exactly one.</para>
+				</listitem>
+				<listitem>
+					<para>Optionally give your VM a name and a group.  The group is text that may be whatever you would like.  Click Submit and your VM will be created and started.</para>
+				</listitem>
+			</itemizedlist>
+			</listitem>
+		</itemizedlist>
+	</para>
+	<para>If you decide to grow your deployment, you can add more Hosts, Primary Storage, Zones, Pods, and Clusters.
+		 Repeat the procedures above as needed.</para>
 </chapter>
 
