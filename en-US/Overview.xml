@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-CloudStack_Quick_Install_Guide-Overview">
+	<title>Overview</title>
+	<para>
+		CloudStack 2.2 is a enterprise-grade open source software solution to manage the cloud. 
+	</para>
+	<para>
+		The CloudStack consists of two types of nodes:
+		<orderedlist>
+			<listitem>
+				<para>
+					<application>CloudStack Management Server</application>: The server in this node is the resource manager
+					in the system.  It controls allocation of virtual machines to servers in the
+					Host and assigns storage and IP addresses to the virtual machine instances.
+				</para>
+			</listitem>
+			<listitem>
+				<para>
+					<application>CloudStack Host</application>: The servers in this node run the virtual machine instances. 
+					Servers are grouped into Zones, Pods, and Clusters.
+				</para>
+				<orderedlist>
+						<listitem>
+							<para> 
+								<application>Zone</application>: A Zone consists of multiple Pods. Typically a Zone is a datacenter
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<application>Pod</application>: A Pod is usually one rack of hardware and includes one or 
+								more clusters, and a layer-2 switch.  The Pod is defined by a network subnet
+							</para>
+						</listitem>
+						<listitem>
+							<para>
+								<application>Cluster</application>: A Cluster consists of one or more Hosts and Primary Storage
+							</para>
+						</listitem>
+				</orderedlist>
+			</listitem>
+		</orderedlist>
+			
+	</para>
+	<para>
+		A small installation may consist of one Management Server and at least one host. 
+		Additional Hosts can be added after the initial installation. 
+	</para>
+
+	<para>
+		This guide is designed to rapidly install and configure a small installation. 
+		Discussions of deployement architecture, high availability and other advanced 
+		topics are covered in the Installation Guide. The topics covered in this document are:
+		<orderedlist>
+			<listitem>
+				<para>Prerequisites</para>
+			</listitem>
+			<listitem>
+				<para>Set up networking</para>
+			</listitem>
+			<listitem>
+				<para>Set up storage</para>
+			</listitem>
+			<listitem>
+				<para>Install Citrix XenServer/VMware vSphere/KVM</para>
+			</listitem>
+			<listitem>
+				<para>Install the CloudStack Management Server</para>
+			</listitem>
+			<listitem>
+				<para>Prepare secondary storage</para>
+			</listitem>
+			<listitem>
+				<para>Describe the deployment</para>
+			</listitem>
+			<listitem>
+				<para>Test the deployment</para>
+			</listitem>
+		</orderedlist>
+	</para>
+
+
+</chapter>
+
