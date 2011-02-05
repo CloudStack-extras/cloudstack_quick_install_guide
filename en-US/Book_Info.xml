@@ -5,7 +5,7 @@
 ]>
 <bookinfo id="book-CloudStack_Quick_Install_Guide-CloudStack_Quick_Install_Guide">
 	<title>CloudStack Quick Install Guide</title>
-	<subtitle>short description</subtitle>
+	<subtitle>Quick Install Guide</subtitle>
 	<productname>Documentation</productname>
 	<productnumber>0.1</productnumber>
 	<edition>0</edition>
@@ -18,7 +18,7 @@
 	<corpauthor>
 		<inlinemediaobject>
 			<imageobject>
-				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" />
+				<imagedata fileref="Common_Content/images/title_logo.png" format="SVG" />
 			</imageobject>
 		</inlinemediaobject>
 	</corpauthor>
