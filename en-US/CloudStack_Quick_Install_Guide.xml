@@ -8,6 +8,9 @@
 	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Prerequisites.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Management_server_install.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="Troubleshooting.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+        <xi:include href="Support.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<index />
 </book>
