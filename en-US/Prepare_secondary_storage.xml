@@ -3,8 +3,9 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-CloudStack_Quick_Install_Guide-Test_Chapter">
-	<title>Test Chapter</title>
+<chapter id="chap-CloudStack_Quick_Install_Guide-Prepare_secondary_storage">
+	<title>Prepare Secondary Storage</title>
+
 
 </chapter>
 
