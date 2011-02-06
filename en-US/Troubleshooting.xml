@@ -19,7 +19,7 @@
 			<listitem>
 				<para>The configured DNS server cannot resolve your internal hostnames.  </para>
 				<para>E.g., you entered private-nfs.lab.example.org for secondary storage NFS, 
-				but gave a DNS server that your customers use, and that server cannot resolve private-nfs.lab.example.org.<para>
+				but gave a DNS server that your customers use, and that server cannot resolve private-nfs.lab.example.org.</para>
 			</listitem>
 
 		</itemizedlist>
@@ -61,7 +61,7 @@
 					</listitem>
 					<listitem>
 						<para>Once into the SSVM, run the following diagnostic script:
-						<programlisting># /usr/local/cloud/systemvm/ssvm-check.sh</programlisting>
+						<programlisting># /usr/local/cloud/systemvm/ssvm-check.sh</programlisting></para>
 					</listitem>
 				</orderedlist>
 			</para>

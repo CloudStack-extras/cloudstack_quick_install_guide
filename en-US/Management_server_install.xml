@@ -25,7 +25,7 @@
 		<title>Operating System Preparation</title>
 		<para>The Cloud.com Management Server requires RHEL/CentOS 5.4 64 bit or later. 
 		The OS must be prepared to host the Management Server using the following steps. 
-		<para>
+		</para>
 		<note>
 			<para>NTP configuration is highly recommended. Installing and configuring <application>ntp</application> or <application>chrony</application> should be done on all hosts</para>
 		</note>

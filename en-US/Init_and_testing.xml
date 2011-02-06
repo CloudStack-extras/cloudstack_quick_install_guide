@@ -54,7 +54,7 @@
 			</listitem>
 			<listitem>
 				<para>Click the button to create a new VM and follow the steps in the wizard.  </para>
-			<itemizedlist>
+			<orderedlist>
 				<listitem>
 					<para>The template selection screen requires selecting a template.  At this point you likely have only the provided CentOS template available.</para>
 				</listitem>
@@ -70,9 +70,9 @@
 				<listitem>
 					<para>Optionally give your VM a name and a group.  The group is text that may be whatever you would like.  Click Submit and your VM will be created and started.</para>
 				</listitem>
-			</itemizedlist>
+			</orderedlist>
 			</listitem>
-		</itemizedlist>
+		</orderedlist>
 	</para>
 	<para>If you decide to grow your deployment, you can add more Hosts, Primary Storage, Zones, Pods, and Clusters.
 		 Repeat the procedures above as needed.</para>

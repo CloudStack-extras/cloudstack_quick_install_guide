@@ -1,0 +1,113 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-CloudStack_Quick_Install_Guide-Describe_your_deployment">
+	<title>Describe Your Deployment</title>
+	<para>Now your Cloud.com Management Server is running. The next step is to tell it about the hosts, storage, and network configuration that you have done in the previous sections.
+		<orderedlist>
+			<listitem>
+				<para>Log in to the administrator web UI.</para>
+				<programlisting>http://management-server-ip-address:8080/client</programlisting>
+				<para>The default credentials are “admin” for user and “password” for password.  The domain field should be left blank.  A blank domain field defaults to the ROOT domain.</para>
+			</listitem>
+			<listitem>
+				<para>Using the left navigation tree, click on Configuration then Global Settings.</para>
+			</listitem>
+		</orderedlist>
+	</para>
+	<mediaobject>
+		<imageobject>
+        		<imagedata fileref="./images/dyd01.png" />
+		</imageobject>
+		<textobject><phrase>administrative web interface</phrase></textobject>
+	</mediaobject>
+	<para>You must edit the following fields</para>
+
+	<table id="tb-dyd-fields1" frame='all'><title>Describe Your Deployment - Mandatory Fields</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="2*"/>
+          <thead>
+              <row>
+                <entry>Field </entry>
+                <entry>Value</entry>
+              </row>
+          </thead>
+	<tbody>
+              <row>
+                <entry>hypervisor.type</entry>
+		<entry>This variable controls which hypervisor type will be used to run the system VMs.  
+		Allowed values are "xenserver", "kvm", and "vmware".</entry>
+	      </row>
+	</tbody>
+        </tgroup>
+	</table>
+
+	<important>
+		<para> You must set this variable.  It defaults to xenserver.  If you are deploying a Cloud without 
+		XenServer you must set this to the type of hypervisor you are deploying</para>
+	</important>
+
+	<para>You may need to edit the following fields</para>
+
+        <table id="tb-dyd-fields2" frame='all'><title>Describe Your Deployment - Optional Fields</title>
+        <tgroup cols='2' align='left' colsep='1' rowsep='1'>
+        <colspec colnum="1" colwidth="1*"/>
+        <colspec colnum="2" colwidth="2*"/>
+          <thead>
+              <row>
+                <entry>Field </entry>
+                <entry>Value</entry>
+              </row>
+          </thead>
+        <tbody>
+              <row>
+                <entry>xen.public.network.device</entry>
+		<entry>For XenServer nodes, this is the device name with the name-label that was used for the public network.  
+		For example, “cloud-public”. This is applicable only if you have a second NIC for the public network. 
+		In this case, set the value to the name-label used for the separate public network created in FIXME
+		</entry>
+	      </row>
+	      <row>
+		<entry>xen.private.network.device</entry>
+		<entry>For XenServer nodes, this is the device name with the name-label that was used for the public network.  
+		For example, “cloud-private”.</entry>
+	      </row>
+	      <row>
+		<entry>kvm.public.network.device</entry>
+		<entry>For KVM nodes, this is the device that was used for the public network.  For example, “cloudbr0”.</entry>
+	      </row>
+	      <row>
+		<entry>kvm.private.network.device</entry>
+		<entry>For KVM nodes, this is the device that was used for the public network.  For example, “cloudbr0”.</entry>
+	      </row>
+	      <row>
+		<entry>use.local.storage</entry>
+		<entry>This determines whether or not the CloudStack will use storage that is local to the Host for VHDs.   
+		By default the CloudStack will not use this storage.  You should change this to true if you want to use 
+		local storage and you understand the reliability and feature drawbacks to choosing local storage.  
+			<note><para>Local storage is available only for XenServer and vSphere.</para></note>
+		</entry>
+	      </row>
+	      <row>
+		<entry>Host</entry>
+		<entry>This is the IP Address of the management server</entry>
+	      </row>
+	      <row>
+		<entry>vmware.guest.vswitch</entry>
+		<entry>The name of the vSwitch in vCenter that you want to carry the guest-guest traffic.  Default is vSwitch0.</entry>
+              </row>
+	      <row>
+		<entry>vmware.private.vswitch</entry>
+		<entry>The name of the vSwitch in vCenter that you want to carry the management and storage traffic.  Default is vSwitch0.</entry>
+              </row>
+              <row>
+		<entry>vmware.public.vswitch</entry>
+		<entry>The name of the vSwitch in vCenter that you want to carry the traffic to/from the public internet.  Default is vSwitch0.</entry>
+	      </row>
+	</tbody>
+        </tgroup>
+	</table>
+</chapter>

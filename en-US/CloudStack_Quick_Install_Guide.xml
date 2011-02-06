@@ -3,12 +3,13 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
 %BOOK_ENTITIES;
 ]>
-<book>
+<book status="draft">
 	<xi:include href="Book_Info.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Prerequisites.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Management_server_install.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
+	<xi:include href="Describe_your_deployment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Init_and_testing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
         <xi:include href="Troubleshooting.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
         <xi:include href="Support.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
