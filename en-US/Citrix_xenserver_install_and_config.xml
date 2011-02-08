@@ -3,31 +3,76 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-CloudStack_Quick_Install_Guide-Test_Chapter">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
+<chapter id="chap-CloudStack_Quick_Install_Guide-Citrix_XenServer_install_and_config">
+	<title>Citrix XenServer Installation and Configuration</title>
+	<para>Citrix XenServer 5.6 GA must be installed on the Hosts. 
+	Citrix XenServer can be downloaded from the Citrix Website 
+	(<ulink url="http://www.citrix.com/lang/English/lp/lp_1688615.asp">http://www.citrix.com/lang/English/lp/lp_1688615.asp</ulink>) 
+	and installed using the Citrix XenServer Installation Guide. 
 	</para>
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
+
+	<important>
+		<para>All hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). 
+		All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, 
+		count, and feature flags. See 
+		<ulink url="http://docs.vmd.citrix.com/XenServer/4.0.1/reference/ch02.html">http://docs.vmd.citrix.com/XenServer/4.0.1/reference/ch02.html</ulink> 
+		for more information on homogenous XenServer hosts.
 		</para>
+	</important>
+	<important>
+		<para>You must re-install Citrix XenServer if you are going to re-use a host from a previous install.  </para>
+	</important>
+	<important>
+		<para>The CloudStack requires XenServer 5.6.  XenServer 5.5 update 2 is not supported.  XenServer 5.6 FP1 is not supported.</para>
+	</important>
+	<section id="xenserver-unpw">
+		<title>Username and Password</title>
+		<para>All XenServers in a Cluster must have the same username and password as configured in the CloudStack.</para>
 	</section>
-	
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
+	<section id="xenserver-time">
+		<title>Time Synchronization</title>
+		<para>The XenServer host must be set to use NTP or another clock synchronization mechanism. 
+		All Hosts in a Pod must have the same time. You can use the NTP servers provided by Citrix:
+		</para>
+<programlisting>0.xenserver.pool.ntp.org
+1.xenserver.pool.ntp.org
+2.xenserver.pool.ntp.org
+3.xenserver.pool.ntp.org</programlisting>
+	</section>
+	<section id="xenserver-licensing">
+		<title>Licensing</title>
+		<para>Citrix XenServer Free version provides 30 days usage without a license. 
+		Following the 30 day trial, XenServer requires a free activation and license. 
+		You can choose to install a license now or skip this step. If you skip this step, 
+		you will need to install a license when you activate and license the XenServer.
+		</para>
+		<section id="xenserver-licensing-deploy">
+			<para>If you choose to install a license now you will need to use the XenCenter to activate and get a license.</para>
 			<orderedlist>
 				<listitem>
-					<para>
-						listitem text
-					</para>
+					<para>In XenCenter, click on <menuchoice><guimenu>Tools</guimenu><guisubmenu>License Manager</guisubmenu></menuchoice></para>
+				</listitem>
+				<listitem>
+					<para>Select your XenServer and select <guibutton>Activate Free XenServer</guibutton>.
+				</listitem>
+				<listitem>
+					<para>Request a license</para>
 				</listitem>
 			</orderedlist>
-		</para>
+			<para>You may also install the license using the xe command tool</para>
+		</section>
 	</section>
+	<section id="xenserver-physnetworking">
+		<title>Physical Networking Setup</title>
+		<para>Once XenServer has been installed you may need to do some additional network configuration.  
+		At this point in the installation, you should have a plan for what NICs the Host will have and what 
+		traffic each NIC will carry. The NICs should be cabled as necessary to implement your plan.</para>
+		<para>The IP address assigned for the private network interface must be static. 
+		It can be set on the host itself or obtained via static DHCP.</para>
+		<para>This document will only cover the configuration of a single NIC, multi-nic, multi-vlan, and bonded NIC setups 
+		are discussed in the Installation guide</para>
+	</section>
+
 
 </chapter>
 
