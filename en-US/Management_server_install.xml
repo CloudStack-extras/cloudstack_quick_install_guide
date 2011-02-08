@@ -33,9 +33,10 @@
 		<orderedlist>
 			<listitem>
 				<para>Edit the <filename>/etc/hosts</filename> file to make sure that the Management Server has a fully-qualified host name that resolves to an IP address.</para>
-				<note>
-					<para> The above will make the management server, but in a production environment the host name should be configured via DNS</para>
-				</note>
+			<note> 
+				<para> The above will make the management server, but in a production environment the host name should be configured via DNS</para>	
+			</note>
+				
 			</listitem>
 			<listitem>
 				<para>Log in as root. All the subsequent steps should be run as root.</para>

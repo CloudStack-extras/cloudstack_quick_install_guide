@@ -1,0 +1,87 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-CloudStack_Quick_Install_Guide-KVM_Installation_and_Configuration">
+	<title>KVM Installation and Configuration</title>
+	<important>
+		<para>All Hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). 
+		All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, count, and feature flags.
+		</para>
+	</important>
+	<section id="sect-kvmhost-setupagent">
+		<title>Installing the CloudStack Agent</title>
+		<para>Each KVM Host must have the CloudStack Agent installed on it. 
+		 Install the CloudStack Agent on each Host using the following steps.  
+		All commands should be run as root.  On Fedora and RHEL6 you have to make sure that the hostname resolves in DNS or <filename>/etc/hosts</filename>.
+		</para>
+		<para>A Host’s host OS must also have a fully qualified domain name.  
+		Usually you can correct the lack of a FQDN by editing /etc/hosts.  
+		You will also want to make sure that the IP address associated with the hostname is 
+		the IP address of the default route table entry (usually eth0).  
+		If the hostname resolves to 127.0.0.1 guest networking will not work.
+		</para>
+		<orderedlist>
+			<listitem>
+				<para>Check for a fully qualified hostname.</para>
+				<programlisting>hostname --fqdn</programlisting>
+				<para>This should return a fully qualified hostname such as "kvm1.lab.example.org".  
+				If it does not edit /etc/hosts so that it does.
+				</para>
+				<!-- QUESTION Does this really solve the problem?? perhaps hostname and this is needed -->
+			</listitem>
+			<listitem>
+				<para>On RHEL6, remove qemu-kvm.  The CloudStack provides a patched version.</para>
+				<programlisting>yum erase qemu-kvm</programlisting>
+			</listitem>
+			<listitem>
+				<para>Check for quotation marks (") in any of the ifcfg-ethX files.
+				 RHEL6 may create lines like IPADDR="192.168.21.217".  To remove the quotation marks 
+				you can either run "setup" and choose to edit the network configuration or you can 
+				manually edit <filename>/etc/sysconfig/network-scripts/ifcfg-ethX</filename>.  
+				You should remove the quotation marks from all values in this file.
+				</para>
+			</listitem>
+			<listitem>
+				<para>Disable SELinux</para>
+				<para>Set SELinux up to be permissive by default. First, set the SELINUX variable in 
+				<filename>/etc/selinux/config</filename> to “permissive”. This ensures that the CloudStack 
+				Agent can run properly on system reboot.   Then set SELinux to permissive until the system is rebooted: </para>
+				<programlisting># setenforce permissive</programlisting>
+			</listitem>
+			<listitem>
+				<para>Install the cloudstack packages </para>
+				<!-- Needs more info NEEDINFO -->
+			</listitem>
+		</orderedlist>
+		<para>The CloudStack Agent is now installed.  Later in the installation you will add this host to the CloudStack 
+		via the Management Server.  This step will configure the Agent on the Host.
+		</para>
+		<important>
+			<para>A Host must have a statically allocated IP address; 
+			host addition will error and fail if a dynamically-assigned address is present. 
+			</para>
+		</important>
+	</section>
+	<section id=sect-kvmhost-physnetworkconfig>
+		<title>Physical Network Configuration</title>
+		<para>You should have a plan for how the Hosts will be cabled and which physical NICs will carry what types of traffic.  By default the CloudStack will use the device that is used for the default route.    This device will be placed in a CloudStack-created bridge.
+		</para>
+		<para>If a system has multiple NICs or bonding is desired the admin may configure the networking on the host.  The admin must create a bridge and place the desired device into the bridge.  This may be done for each of the public network and the private network.  Then the customer should edit /etc/cloud/agent/agent.properties and add values for
+		</para>
+		<itemizedlist>
+			<listitem>
+				<para>public.network.device</para>
+			</listitem>
+			<listitem>
+				<para>private.network.device</para>
+			</listitem>
+		</itemizedlist>
+		<para>These should be set to the name of the bridge that the user created for the respective traffic type.  For example</para>
+		<programlisting>public.network.device=publicbondbr0</programlisting>
+		<para>This should be done after the install of the software as described previously.</para>
+	</section>
+
+</chapter>
+

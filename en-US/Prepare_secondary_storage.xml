@@ -5,7 +5,47 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-Prepare_secondary_storage">
 	<title>Prepare Secondary Storage</title>
-
-
+	<para>Secondary storage in all Zones must be seeded with a template that is used for system VMs 
+	such as the Virtual Router. For each Secondary storage server you will need to execute the following steps.
+	</para>
+	<note>
+		<para>The 2.1 series system VM template will not work on 2.2.  You must use the 2.2 system VM template.</para>
+	</note>
+	<orderedlist>
+		<listitem>
+			<para>Mount secondary storage on to your Management Server. This example assumes the path on the 
+			secondary storage server is /nfs/share.
+			</para>
+			<programlisting># mount -t nfs servername:/nfs/share /mnt/secondary</programlisting>
+		</listitem>
+		<listitem>
+			<para>Retrieve and decompress the system VM template.  Run the script 
+			<filename>/usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt</filename>,
+			which is installed on the Management Server.  Run this for each hypervisor type that you 
+			expect end users to run in this Zone.  This will give the system maximum flexibility to run system 
+			virtual machines.  This process will require approximately 10 GB of free space on the local 
+			file system each time it runs.
+			</para>
+			<para>The command to run depends on hypervisor type. </para>
+			<para>For vSphere</para>
+			<programlisting># /usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary \
+			-u http://download.cloud.com/releases/2.2.0/systemvm.ova -h vmware -F
+			</programlisting>
+			<para>For KVM</para>
+			<programlisting># /usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary \
+			-u http://download.cloud.com/releases/2.2.0/systemvm.qcow2.bz2 -h kvm -F
+			</programlisting>
+			<para>For XenServer</para>
+			<programlisting># /usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary \
+			-u http://download.cloud.com/releases/2.2.0/systemvm.vhd.bz2 -h xenserver -F
+			</programlisting>
+			<para>Each one of these files is large.  It may take 30 minutes or more to download and uncompress.</para>
+			
+		</listitem>
+		<listitem>
+			<para>Unmount secondary storage when the script has finished.</para>
+			<programlisting># umount /mnt/secondary </programlisting>
+		</listitem>
+	</orderedlist>
 </chapter>
 
