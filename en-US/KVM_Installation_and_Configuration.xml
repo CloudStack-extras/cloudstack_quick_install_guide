@@ -64,7 +64,7 @@
 			</para>
 		</important>
 	</section>
-	<section id=sect-kvmhost-physnetworkconfig>
+	<section id="sect-kvmhost-physnetworkconfig">
 		<title>Physical Network Configuration</title>
 		<para>You should have a plan for how the Hosts will be cabled and which physical NICs will carry what types of traffic.  By default the CloudStack will use the device that is used for the default route.    This device will be placed in a CloudStack-created bridge.
 		</para>

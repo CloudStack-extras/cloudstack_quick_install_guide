@@ -5,9 +5,9 @@
 ]>
 <bookinfo id="book-CloudStack_Quick_Install_Guide-CloudStack_Quick_Install_Guide">
 	<title>CloudStack Quick Install Guide</title>
-	<subtitle>Quick Install Guide</subtitle>
-	<productname>Documentation</productname>
-	<productnumber>0.1</productnumber>
+	<!--<subtitle>Quick Install Guide</subtitle>-->
+	<productname>CloudStack</productname>
+	<productnumber>2.2</productnumber>
 	<edition>0</edition>
 	<pubsnumber>0</pubsnumber>
 	<abstract>
