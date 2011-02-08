@@ -8,6 +8,7 @@
 	<xi:include href="Preface.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Overview.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Prerequisites.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />  
+	<xi:include href="Storage_setup.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="KVM_Installation_and_Configuration.xml" xmlns:xi="http://www.w3.org/2001/XInclude" />
 	<xi:include href="Management_server_install.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
 	<xi:include href="Prepare_secondary_storage.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
