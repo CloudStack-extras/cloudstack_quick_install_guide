@@ -3,31 +3,72 @@
 <!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
 %BOOK_ENTITIES;
 ]>
-<chapter id="chap-CloudStack_Quick_Install_Guide-Test_Chapter">
-	<title>Test Chapter</title>
-	<para>
-		This is a test paragraph
+<chapter id="chap-CloudStack_Quick_Install_Guide-Storage_setup">
+	<title>Storage Setup</title>
+	<para>The Cloud.com CloudStack is designed to work with a wide variety of commodity 
+	and enterprise-grade storage. Local disk, NFS, iSCSI, and Fibre Channel, may be used 
+	depending on the hypvervisor. Storage type support for guest virtual disks differs 
+	based on hypervisor selection.
 	</para>
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_1">
-		<title>Test Section 1</title>
-		<para>
-			This is a test paragraph in a section
+	<para>In this document we will only be covering simple NFS setup and configuration. Other methods
+	are covered in the Installation Guide
+	</para>
+	<section id="sect-Storage_setup-NFS">
+		<title>Linux-based NFS</title>
+		<para>This section describes how to configure an NFS export on a standard Linux installation. 
+		Instructions in this section specifically apply to RHEL/CentOS/Fedora Steps to setup other distributions may vary.
 		</para>
-	</section>
-	
-	<section id="sect-CloudStack_Quick_Install_Guide-Test_Chapter-Test_Section_2">
-		<title>Test Section 2</title>
-		<para>
-			This is a test paragraph in Section 2
-			<orderedlist>
-				<listitem>
-					<para>
-						listitem text
-					</para>
-				</listitem>
-			</orderedlist>
-		</para>
-	</section>
+		<orderedlist>
+			<listitem>
+				<para>Create a directory called <filename>/export</filename>. 
+				This can each be a directory in the root partition itself or a mount point for a large disk volume.
+				</para>
+			</listitem>
+			<listitem>
+				<para>After <filename>/export</filename> directory is created, run the following command to 
+				configure it as an NFS export.
+				</para>
+				<programlisting>echo “/export *(rw,async,no_root_squash)” >> /etc/exports</programlisting>
+				<para>You may need to adjust the above command to suite your deployment needs.</para>
+			</listitem>
+			<listitem>
+				<para>Edit the <filename>/etc/sysconfig/nfs</filename> file and uncomment the following lines.</para>
+<programlisting>LOCKD_TCPPORT=32803
+LOCKD_UDPPORT=32769
+MOUNTD_PORT=892
+RQUOTAD_PORT=875
+STATD_PORT=662
+STATD_OUTGOING_PORT=2020
+</programlisting>
+			</listitem>
+			<listitem>
+				<para>Edit the <filename>/etc/sysconfig/iptables</filename> file and add the following lines 
+				at the beginning of the INPUT chain.
+				</para>
+<programlisting>-A INPUT -m state --state NEW -p udp --dport 111 -j ACCEPT
+-A INPUT -m state --state NEW -p tcp --dport 111 -j ACCEPT
+-A INPUT -m state --state NEW -p tcp --dport 2049 -j ACCEPT
+-A INPUT -m state --state NEW -p tcp --dport 32803 -j ACCEPT
+-A INPUT -m state --state NEW -p udp --dport 32769 -j ACCEPT
+-A INPUT -m state --state NEW -p tcp --dport 892 -j ACCEPT
+-A INPUT -m state --state NEW -p udp --dport 892 -j ACCEPT
+-A INPUT -m state --state NEW -p tcp --dport 875 -j ACCEPT
+-A INPUT -m state --state NEW -p udp --dport 875 -j ACCEPT
+-A INPUT -m state --state NEW -p tcp --dport 662 -j ACCEPT
+-A INPUT -m state --state NEW -p udp --dport 662 -j ACCEPT
+</programlisting>
+			</listitem>
+			<listitem>
+				<para>Restart iptables</para>
+				<programlisting># service iptables restart</programlisting>
+			</listitem>
+			<listitem>
+				<para>Start NFS</para>
+				<programlisting># service nfs start</programlisting>
+			</listitem>
+		</orderedlist>
+		<para>An NFS share is now setup at <filename>/export</filename></para>
 
+	</section>
 </chapter>
 
