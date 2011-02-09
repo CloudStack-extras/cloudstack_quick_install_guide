@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='utf-8' ?>
+<!DOCTYPE chapter PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN" "http://www.oasis-open.org/docbook/xml/4.5/docbookx.dtd" [
+<!ENTITY % BOOK_ENTITIES SYSTEM "CloudStack_Quick_Install_Guide.ent">
+%BOOK_ENTITIES;
+]>
+<chapter id="chap-CloudStack_Quick_Install_Guide-VMware_vsphere_installation">
+	<title>VMware vSphere Installation and Configuration</title>
+	<para>VMware vSphere  must be installed on the Hosts. VMware vSphere can be downloaded and purchased from the VMware Website 
+	(<ulink url=https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&lp=1>https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&lp=1</ulink>) 
+	and installed by following the VMware vSphere Installation Guide. 
+	</para>
+	<para><application>VMware vCenter Standard Edition 4.1</application> must be installed and available to manage the vSphere Hosts.</para>
+	<important><para>You must re-install VMware ESXi if you are going to re-use a host from a previous install. </para></important>
+	<important><para>The CloudStack requires VMware vSphere 4.1.  VMware vSphere 4.0 is not supported.</para></important>
+	<important><para>All hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, count, and feature flags.</para></important>
+	<important><para>CloudStack requires ESXi.  ESX is not supported.</para></important>
+	<para>The following sections contain information about configuring the VMware vSphere.</para>
+	<section id="sect-vmware-licensing">
+		<title>Licensing</title>
+		<para>The CloudStack require vSphere and vCenter, both version 4.1. vSphere Standard is recommended.  
+		Note however that customers need to consider the CPU constraints in place with vSphere licensing.  See 
+		<ulink url="http://www.vmware.com/files/pdf/vsphere_pricing.pdf">http://www.vmware.com/files/pdf/vsphere_pricing.pdf</ulink>
+		 and discuss with your VMware sales representative.
+		</para>
+	</section>
+	<section id="vmware-esxi-host-setup">
+		<title>ESXi host setup</title>
+		<para>All ESXi hosts should enable CPU hardware virtualization support in BIOS. 
+		Please note hardware virtualization support is not enabled by default on most servers. 
+		</para>
+	</section>
+	<section id="vmware-phys-host-setup">
+		<title>Physical host setup</title>
+		<para>You should have a plan for cabling the vSphere hosts. Proper network configuration is required 
+		before adding a vSphere Host to the CloudStack. To configure an ESXi host, you can use vClient to add 
+		it as standalone host to vCenter first.  Once you see the host appearing in the vCenter inventory tree, 
+		click the host node in the inventory tree, and navigate to the Configuration tab:</para>
+		<inlinemediaobject>
+                        <imageobject>
+                                <imagedata fileref="images/vmware-network-1.png" format="PNG" />
+                        </imageobject>
+                </inlinemediaobject>
+		<para>In the host configuration tab, click the “Hardware/Networking” link to bring up the networking configuration page as above.</para>
+		<section id="vmware-phys-host-setup-config-switch">
+			<title>Configure vSwitch</title>
+			<para>A default virtual switch vSwitch0 is created.   CloudStack requires all ESXi hosts in the cloud to use 
+			the same set of virtual switch names. If you change the default virtual switch name you will need to configure 
+			one or more CloudStack configuration variables as well.  This document will not delve into that situation, but it is
+			covered with more detail in the Installation Guide
+			</para>
+		</section>
+		<section id="vmware-phys-host-increase-ports">
+			<title>Increase number of switch ports</title>
+			<para>By default a virtual switch on ESXi hosts is created with 56 ports.  We recommend setting it to 
+			4096, the maximum number of ports allowed. To do that, click the “Properties…” link for virtual switch 
+			(note this is not the Properties link for Networking.)
+			</para>
+			<inlinemediaobject>
+	                        <imageobject>
+        	                        <imagedata fileref="images/vmware-network-2.png" format="PNG" />
+                	        </imageobject>
+	                </inlinemediaobject>
+			<para>In vSwitch properties dialog, select the vSwitch and click Edit button, you should see the following dialog:</para>
+                        <inlinemediaobject>
+                                <imageobject>
+                                        <imagedata fileref="images/vmware-network-3.png" format="PNG" />
+                                </imageobject>
+                        </inlinemediaobject>
+			<para>You can change the number of switch ports in above dialog, after you’ve done that, 
+			ESXi hosts are required to reboot in order for the setting to take effect.
+			</para>
+		</section>
+		<section id="vmware-phys-host-setup-config-vcenter-mgmt-network">
+			<title>Configure vCenter Management Network</title>
+			<para>In the vSwitch properties dialog box, you may see a vCenter management network.  
+			CloudStack also requires vMotion to be configured properly, select the management network 
+			item in the dialog, click edit button</para>
+                        <inlinemediaobject>
+                                <imageobject>
+                                        <imagedata fileref="images/vmware-network-4.png" format="PNG" />
+                                </imageobject>
+                        </inlinemediaobject>
+			<para>Ensure vMotion and Management traffic options are enabled.</para>
+			
+		</section>
+		
+	</section>
+	<section id="vmware-addhosts">
+		<title>Add Hosts</title>
+		<para>Host management for vSphere is done through a combination of vCenter and the CloudStack admin UI.  
+		As an administrator you must decide if you would like to use clusters or standalone hosts.  This document only
+		covers the usage of standalone hosts. See the Installation Guide for more details. 
+		</para>
+		<important><para>The vCenter user that is provided to the CloudStack should have full administrator privileges.</para></important>
+		<para>Use vCenter to add standalone nodes into vCenter management.   You will later add these nodes into the CloudStack one at a time.</para>
+	</section>
+</chapter>
