@@ -47,13 +47,14 @@
 		you will need to install a license when you activate and license the XenServer.
 		</para>
 		<section id="xenserver-licensing-deploy">
+			<title>Deploy Licensing</title>
 			<para>If you choose to install a license now you will need to use the XenCenter to activate and get a license.</para>
 			<orderedlist>
 				<listitem>
 					<para>In XenCenter, click on <menuchoice><guimenu>Tools</guimenu><guisubmenu>License Manager</guisubmenu></menuchoice></para>
 				</listitem>
 				<listitem>
-					<para>Select your XenServer and select <guibutton>Activate Free XenServer</guibutton>.
+					<para>Select your XenServer and select <guibutton>Activate Free XenServer</guibutton>.</para>
 				</listitem>
 				<listitem>
 					<para>Request a license</para>

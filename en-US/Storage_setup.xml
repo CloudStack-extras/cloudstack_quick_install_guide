@@ -28,7 +28,7 @@
 				<para>After <filename>/export</filename> directory is created, run the following command to 
 				configure it as an NFS export.
 				</para>
-				<programlisting>echo “/export *(rw,async,no_root_squash)” >> /etc/exports</programlisting>
+				<programlisting>echo '/export *(rw,async,no_root_squash)' >> /etc/exports</programlisting>
 				<para>You may need to adjust the above command to suite your deployment needs.</para>
 			</listitem>
 			<listitem>
@@ -63,8 +63,14 @@ STATD_OUTGOING_PORT=2020
 				<programlisting># service iptables restart</programlisting>
 			</listitem>
 			<listitem>
-				<para>Start NFS</para>
-				<programlisting># service nfs start</programlisting>
+				<para>Start rpcbind (a prerequisiste) and NFS</para>
+				<programlisting># service rpcbind start
+# service nfs start</programlisting>
+			</listitem>
+			<listitem>
+				<para>Configure nfs and rpcbind to start on boot</para>
+				<programlisting># chkconfig rpcbind on
+# chkconfig nfs on</programlisting>
 			</listitem>
 		</orderedlist>
 		<para>An NFS share is now setup at <filename>/export</filename></para>

@@ -60,5 +60,76 @@
 		</orderedlist>	
 
 	</section>	
+	<section id="mgmt-installation">
+		<title>Installation</title>
+		<para>This section describes the procedure for performing a single node install where the Management 
+		Server and MySQL are on a single, shared OS instance. More complicated installations are 
+		detailed in the Installation Guide
+		</para>
+		<section id="mgmt-installation-mgmt">
+			<title>Management Server</title>
+			<para>Install the CloudStack packages. You should have a file in the form of 
+			<filename>CloudStack-<replaceable>NNNN</replaceable>.tar.gz</filename>.  Untar the file and then run the 
+			<filename>install.sh</filename> script inside it:</para>
+			<programlisting># tar xzf CloudStack-2.2.0-1-centos.tar.gz
+# cd CloudStack-2.2.0-1-centos
+# ./install.sh
+Setting up the temporary repository...
+Cleaning Yum cache...
+Loaded plugins: fastestmirror
+11 metadata files removed
+Welcome to the Cloud.com CloudStack Installer.  What would you like to do?
 
+    M) Install the Management Server
+    A) Install the Agent
+    S) Install the Usage Monitor
+    D) Install the database server
+    Q) Quit
+
+    > M</programlisting>
+			<para>Choose "M" to install the Management Server software</para>
+		</section>
+		<section id="mgmt-install-db">
+			<title>Database</title>
+			<para>Run <filename>install.sh</filename> again and choose "D" to install <application>MySQL</application></para>
+			<programlisting># ./install.sh
+Setting up the temporary repository...
+Cleaning Yum cache...
+Loaded plugins: fastestmirror
+11 metadata files removed
+Welcome to the Cloud.com CloudStack Installer.  What would you like to do?
+
+    A) Install the Agent
+    S) Install the Usage Monitor
+    D) Install the database server
+    U) Upgrade the CloudStack packages installed on this computer
+    R) Stop any running CloudStack services and remove the CloudStack packages from this computer
+    Q) Quit
+
+    > D</programlisting>
+			<para>Edit the <application>MySQL</application> configuration (<filename>/etc/my.cnf</filename>) and insert
+			 the following lines in the [mysqld] section. You can put these lines below the datadir line. </para>
+			<programlisting>innodb_rollback_on_timeout=1
+innodb_lock_wait_timeout=600
+max_connections=350
+			</programlisting>
+
+			<para>Restart the MySQL service and configure it to start on boot</para>
+			<programlisting># service mysqld restart
+# chkconfig mysqld on</programlisting>
+			<para>Use the following script to create the cloud user on the database with a password of your choice. 
+			This script deploys the database using the credentials in the deploy-as parameters. By default on RHEL/CentOS/Fedora
+			MySQL is installed with no root password. If you have set a password you will need to postpend that to the 
+			deploy-as parameter as in "--deploy-as=root:<replaceable>password</replaceable></para>
+			<programlisting># cloud-setup-databases cloud:<replaceable>dbpassword</replaceable>@localhost --deploy-as=root</programlisting>
+		</section>
+		<section id="mgmt-install-final">
+			<title>Final configuration steps</title>
+			<para>Configure the OS for the Management Server using the following command. 
+			This command will set up iptables, sudoers, and start the Management Server.
+			</para>
+			<programlisting># cloud-setup-management</programlisting>
+		</section>
+
+	</section>
 </chapter>

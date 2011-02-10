@@ -6,7 +6,7 @@
 <chapter id="chap-CloudStack_Quick_Install_Guide-VMware_vsphere_installation">
 	<title>VMware vSphere Installation and Configuration</title>
 	<para>VMware vSphere  must be installed on the Hosts. VMware vSphere can be downloaded and purchased from the VMware Website 
-	(<ulink url=https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&lp=1>https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere&lp=1</ulink>) 
+	(<ulink url="https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere">https://www.vmware.com/tryvmware/index.php?p=vmware-vsphere</ulink>)
 	and installed by following the VMware vSphere Installation Guide. 
 	</para>
 	<para><application>VMware vCenter Standard Edition 4.1</application> must be installed and available to manage the vSphere Hosts.</para>
@@ -34,12 +34,13 @@
 		<para>You should have a plan for cabling the vSphere hosts. Proper network configuration is required 
 		before adding a vSphere Host to the CloudStack. To configure an ESXi host, you can use vClient to add 
 		it as standalone host to vCenter first.  Once you see the host appearing in the vCenter inventory tree, 
-		click the host node in the inventory tree, and navigate to the Configuration tab:</para>
-		<inlinemediaobject>
-                        <imageobject>
-                                <imagedata fileref="images/vmware-network-1.png" format="PNG" />
-                        </imageobject>
-                </inlinemediaobject>
+		click the host node in the inventory tree, and navigate to the Configuration tab:
+			<inlinemediaobject>
+        	                <imageobject>
+                	                <imagedata fileref="images/vmware-network-1.png" format="PNG" />
+                        	</imageobject>
+	                </inlinemediaobject>
+		</para>
 		<para>In the host configuration tab, click the “Hardware/Networking” link to bring up the networking configuration page as above.</para>
 		<section id="vmware-phys-host-setup-config-switch">
 			<title>Configure vSwitch</title>
@@ -54,18 +55,19 @@
 			<para>By default a virtual switch on ESXi hosts is created with 56 ports.  We recommend setting it to 
 			4096, the maximum number of ports allowed. To do that, click the “Properties…” link for virtual switch 
 			(note this is not the Properties link for Networking.)
+				<inlinemediaobject>
+	                	        <imageobject>
+        	                	        <imagedata fileref="images/vmware-network-2.png" format="PNG" />
+                	     	   </imageobject>
+	        	        </inlinemediaobject>
 			</para>
-			<inlinemediaobject>
-	                        <imageobject>
-        	                        <imagedata fileref="images/vmware-network-2.png" format="PNG" />
-                	        </imageobject>
-	                </inlinemediaobject>
-			<para>In vSwitch properties dialog, select the vSwitch and click Edit button, you should see the following dialog:</para>
-                        <inlinemediaobject>
-                                <imageobject>
-                                        <imagedata fileref="images/vmware-network-3.png" format="PNG" />
-                                </imageobject>
-                        </inlinemediaobject>
+			<para>In vSwitch properties dialog, select the vSwitch and click Edit button, you should see the following dialog:
+	                        <inlinemediaobject>
+        	                        <imageobject>
+                	                        <imagedata fileref="images/vmware-network-3.png" format="PNG" />
+                        	        </imageobject>
+	                        </inlinemediaobject>
+			</para>
 			<para>You can change the number of switch ports in above dialog, after you’ve done that, 
 			ESXi hosts are required to reboot in order for the setting to take effect.
 			</para>
@@ -74,12 +76,13 @@
 			<title>Configure vCenter Management Network</title>
 			<para>In the vSwitch properties dialog box, you may see a vCenter management network.  
 			CloudStack also requires vMotion to be configured properly, select the management network 
-			item in the dialog, click edit button</para>
-                        <inlinemediaobject>
-                                <imageobject>
-                                        <imagedata fileref="images/vmware-network-4.png" format="PNG" />
-                                </imageobject>
-                        </inlinemediaobject>
+			item in the dialog, click edit button
+	                        <inlinemediaobject>
+                        	        <imageobject>
+                	                        <imagedata fileref="images/vmware-network-4.png" format="PNG" />
+        	                        </imageobject>
+	                        </inlinemediaobject>
+			</para>
 			<para>Ensure vMotion and Management traffic options are enabled.</para>
 			
 		</section>

@@ -110,4 +110,201 @@
 	</tbody>
         </tgroup>
 	</table>
+	<section id="dyd-addazone">
+		<title>Adding a Zone</title>
+		<para>Begin by using these steps to add a basic zone</para>
+		<orderedlist>
+			<listitem>
+				<para>In the left navigation tree, choose System, then Physical Resources.</para>
+			</listitem>
+			<listitem>
+				<para>Click on the + next to the Zone to add a Zone.  The Zone creation wizard will appear.</para>
+			</listitem>
+			<listitem>
+				<para>Choose the 'Basic' network type</para>
+			</listitem>
+			<listitem>
+				<para>Configure the zone</para>
+				<!-- INSERT graphic here needs a graphic showing basic zone creation-->
+				<para>Enter the following details in the Add Zone dialog</para>
+				<itemizedlist>
+					<listitem>
+						<para>Name. The name of the Zone.</para>
+					</listitem>
+					<listitem>
+						<para>DNS 1 and 2. These are DNS servers for use by guest VMs in the Zone. 
+						These DNS servers will be accessed via the public network you will add later. 
+						The public IP addresses for the Zone must have a route to the DNS server named here.
+						</para>
+					</listitem>
+					<listitem>
+						<para>Internal DNS 1 and 2. These are DNS servers for use by system VMs in the Zone. 
+						These DNS servers will be accessed via the private network interface of the System VMs. 
+						The private IP address you provide for the Pods must have a route to the DNS server named here. 
+						</para>
+					</listitem>
+					<listitem>
+						<para>Public?: Should be set to yes</para>
+					</listitem>
+				</itemizedlist>
+                        </listitem>
+                </orderedlist>
+		
+	</section>
+		<section id="dyd-addapod">
+			<title>Add a Pod</title>
+			<para>Enter the following details in the Add Pod dialog</para>
+			<itemizedlist>
+				<listitem>
+					<para>Name: the name of the pod</para>
+				</listitem>
+				<listitem>
+					<para>Gateway: the gateway for the hosts in that pod</para>
+				</listitem>
+				<listitem>
+					<para>CIDR.  The CIDR that encompasses the subnet in the Pod.</para>
+				</listitem>
+				<listitem>
+					<para>Reserved System IP: This is the IP range in the private network that the 
+					CloudStack uses to manage Secondary Storage VMs and Console Proxy VMs. These IP 
+					addresses are taken from the same subnet as computing servers. You therefore need 
+					to make sure computing servers and Management Servers use IP addresses outside of 
+					this range. These two values combine to give the system control over a certain IP 
+					address range, and leave you in control of allocation for IP addresses in the CIDR 
+					but outside of the start and end range. In the screenshot we have start=192.168.154.2 
+					and end=192.168.154.7. These computing servers and Management Servers can use IP 
+					addresses .8 to .254 and the CloudStack can use .2 to .7 for System VMs.  
+					</para>
+					<para>The recommended number of private IPs per Pod is 5 times the number of Clusters. 
+					The example above allocates ten IPs as if two Clusters were in place for the Pod.</para>
+				</listitem>
+				<listitem>
+					<para>Guest IP Range.  The range of IP addresses that will be available for allocation 
+					to guests in this Pod.  If one NIC is used these IPs should be in the same CIDR as the 
+					Pod CIDR.  If multiple NICs are used they may be in a different subnet.
+					</para>
+				</listitem>
+				<listitem>
+					<para>Guest Netmask:  The netmask in use on the subnet the guests will use.</para>
+				</listitem>
+				<listitem>
+					<para>Guest Gateway:  The gateway that the guests should use.</para>
+				</listitem>
+			</itemizedlist>
+		</section>
+		<section id="dyd-addhost">
+			<title>Add hosts</title>
+			<para>KVM and Xenserver hosts can be added as standalone hosts. Adding clusters of hosts is covered in the Installation Guide
+			but is outside the scope of this document to add a host follow these steps</para>
+			<orderedlist>
+				<listitem>
+					<para>Go to System -> Physical Resources -> Zone -> Pod -> Add Host.  The Add Host dialog displays.</para>
+					<mediaobject>
+				                <imageobject>
+				                        <imagedata fileref="./images/dyd03.png" />
+				                </imageobject>
+				                <textobject><phrase>add a host dialog</phrase></textobject>
+				        </mediaobject>
+				</listitem>
+				<listitem>
+					<para>Provide the following information in the Add Host dialog.</para>
+					<itemizedlist>
+						<listitem>
+							<para>Hypervisor: The Hypervisor type for this Host.</para>
+						</listitem>
+						<listitem>
+							<para>Cluster: This should stay at "None Available" which will cause the host to be added as standalone</para>
+						</listitem>
+						<listitem>
+							<para>Host name. For Xen and KVM this is the DNS name or IP address of the XenServer host or KVM host.</para>
+						</listitem>
+						<listitem>
+							<para>User name. Usually the root user</para>
+						</listitem>
+						<listitem>
+							<para>The password for the above user</para>
+						</listitem>
+					</itemizedlist>
+                              </listitem>
+			</orderedlist>
+			<para>It may take a minute for the host to be provisioned. It should automatically display in the UI. </para>
+		</section>
+		<section id="dyd-addprimarystorage">
+			<title>Add Primary Storage</title>
+			<para>Next you will need to tell the system about the primary and secondary storage devices that are available. If you intend to use only local disk for your installation you can skip to Secondary Storage.</para>
+			<note><para>Local storage only works with Citrix XenServer and VMware vSphere</para></note>
+			<important><para>Primary storage cannot be added until a Host has been added to the Cluster.</para></important>
+			<important><para>If you do not provision shared storage for primary storage, you will not be able to create 
+			additional volumes (via Storage > Volumes > Add Volume). Also, if you do not provision shared primary 
+			storage, you must have set system.vm.local.storage.required to true in the first part of this section or 
+			else you will not be able to start VMs. </para></important>
+			<orderedlist>
+				<listitem>
+					<para>Navigate to the CloudStack cluster that you want to add primary storage to.  
+					Go to System -> Physical Resources -> Zone -> Pod -> Cluster.  
+					Then choose "Add Primary Storage".</para>
+				</listitem>
+				<listitem>
+					<para>Provide the following information in the Add Primary Storage dialog.  </para>
+					<itemizedlist>
+						<listitem>
+							<para>Cluster:  The Cluster for the storage device.</para>
+						</listitem>
+						<listitem>
+							<para>Name: The name of the storage device.</para>
+						</listitem>
+						<listitem>
+							<para>Protocol: For XenServer, choose either NFS or iSCSI.  For KVM, choose NFS.  
+							For vSphere choose either VMFS (iSCSI) or NFS.</para>
+						</listitem>
+						<listitem>
+							<para>Server (for NFS or iSCSI). The IP address or DNS name of the storage device.</para>
+						</listitem>
+						<listitem>
+							<para>Path (for NFS). In NFS this is the exported path from the server</para>
+						</listitem>
+						<listitem>
+							<para>Target IQN (iSCSI Only). In iSCSI this is the IQN of the target. 
+							For example, iqn.1986-03.com.sun:02:01ec9bb549-1271378984</para>
+						</listitem>
+						<listitem>
+							<para>Lun # (iSCSI Only). In iSCSI this is the LUN number. For example, 3</para>
+						</listitem>
+						<listitem>
+							<para>Tags.  The comma-separated list of tags for this storage device.  
+							It should be an equivalent set or superset of the tags on your disk offerings.  
+							It is an optional field and may be left blank.</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</orderedlist>
+			<para>You can add multiple primary storage servers. At least one is required</para>
+		</section>
+		<section id="dyd-secondarystorage">
+			<title>Secondary Storage</title>
+			<para>You will need to add secondary storage.   Secondary Storage is used to 
+			store templates, ISOs, and snapshots. </para>
+			<note><para>Secondary Storage is always accessed by NFS</para></note>
+			<orderedlist>
+				<listitem>
+					<para>Navigate to the Zone you are building.  Choose System -> Physical Resources and then click on your Zone.</para>
+				</listitem>
+				<listitem>
+					<para>Provide exactly one Secondary Storage device per Zone.  Select "Add Secondary Storage".</para>
+				</listitem>
+				<listitem>
+					<para>Provide the details for Secondary Storage server:</para>
+					<itemizedlist>
+						<listitem>
+							<para>Server: The IP address of the server</para>
+						</listitem>
+						<listitem>
+							<para>Path. The exported path from the server.</para>
+						</listitem>
+					</itemizedlist>
+				</listitem>
+			</orderedlist>
+		</section>
+			
+
 </chapter>

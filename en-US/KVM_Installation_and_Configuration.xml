@@ -51,7 +51,25 @@
 				<programlisting># setenforce permissive</programlisting>
 			</listitem>
 			<listitem>
-				<para>Install the cloudstack packages </para>
+				<para>Install the CloudStack packages. You should have a file in the form of <filename>CloudStack-<replaceable>NNNN</replaceable>.tar.gz</filename>. Untar the file and and then run the <filename>install.sh</filename> script inside it.</para>
+				<programlisting># tar xzf CloudStack-2.2.0-1-centos.tar.gz
+# cd CloudStack-2.2.0-1-centos
+# ./install.sh
+Setting up the temporary repository...
+Cleaning Yum cache...
+Loaded plugins: fastestmirror
+11 metadata files removed
+Welcome to the Cloud.com CloudStack Installer.  What would you like to do?
+
+    M) Install the Management Server
+    A) Install the Agent
+    S) Install the Usage Monitor
+    D) Install the database server
+    Q) Quit
+
+    > A</programlisting>
+
+				<para>Choose A to install the Agent software</para>
 				<!-- Needs more info NEEDINFO -->
 			</listitem>
 		</orderedlist>
