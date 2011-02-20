@@ -90,7 +90,15 @@
 		</section>
 		<section id="dyd-addcluster">
 			<title>Add a cluster</title>
-			<para>Something needs to go in here</para>
+			<para>A cluster can be added by clicking on 'Add a cluster' and entering the following details:</para>
+			<itemizedlist>
+				<listitem>
+					<para>Hypervisor: Select the hypervisor type</para>
+				</listitem>
+				<listitem>
+					<para>Cluster: Enter a name for the cluster</para>
+				</listitem>
+			</itemizedlist>
 		</section>
 		<section id="dyd-addhost">
 			<title>Add hosts</title>

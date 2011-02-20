@@ -12,13 +12,13 @@
 	<pubsnumber>0</pubsnumber>
 	<abstract>
 		<para>
-			A short overview and summary of the book's subject and purpose, traditionally no more than one paragraph long. Note: the abstract will appear in the front matter of your book and will also be placed in the description field of the book's RPM spec file.
+			This document covers a rapid install and configure CloudStack. It does not cover every possible scenario, but describes steps to get a minimal CloudStack installation. 
 		</para>
 	</abstract>
 	<corpauthor>
 		<inlinemediaobject>
 			<imageobject>
-				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" scalefit="1" width="10in" depth="2in" />
+				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" scalefit="1" width="8in" depth="1.60in" />
 			</imageobject>
 		</inlinemediaobject>
 	</corpauthor>
