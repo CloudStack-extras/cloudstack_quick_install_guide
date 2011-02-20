@@ -29,6 +29,7 @@
 		<title>Username and Password</title>
 		<para>All XenServers in a Cluster must have the same username and password as configured in the CloudStack.</para>
 	</section>
+	<!--Pulling this out, because it's not critical, and thus just filler
 	<section id="xenserver-time">
 		<title>Time Synchronization</title>
 		<para>The XenServer host must be set to use NTP or another clock synchronization mechanism. 
@@ -38,7 +39,8 @@
 1.xenserver.pool.ntp.org
 2.xenserver.pool.ntp.org
 3.xenserver.pool.ntp.org</programlisting>
-	</section>
+	</section>-->
+	<!-- Pulling this section out because I don't care about licensing.
 	<section id="xenserver-licensing">
 		<title>Licensing</title>
 		<para>Citrix XenServer Free version provides 30 days usage without a license. 
@@ -63,6 +65,7 @@
 			<para>You may also install the license using the xe command tool</para>
 		</section>
 	</section>
+	-->
 	<section id="xenserver-physnetworking">
 		<title>Physical Networking Setup</title>
 		<para>Once XenServer has been installed you may need to do some additional network configuration.  

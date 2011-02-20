@@ -18,7 +18,7 @@
 	<corpauthor>
 		<inlinemediaobject>
 			<imageobject>
-				<imagedata fileref="Common_Content/images/title_logo.png" format="SVG" />
+				<imagedata fileref="Common_Content/images/title_logo.svg" format="SVG" scalefit="1" width="10in" depth="2in" />
 			</imageobject>
 		</inlinemediaobject>
 	</corpauthor>
