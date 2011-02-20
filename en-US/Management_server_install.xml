@@ -34,7 +34,7 @@
 			<listitem>
 				<para>Edit the <filename>/etc/hosts</filename> file to make sure that the Management Server has a fully-qualified host name that resolves to an IP address.</para>
 			<note> 
-				<para> The above will make the management server, but in a production environment the host name should be configured via DNS</para>	
+				<para> The above will make the management server work, but in a production environment the host name should be configured via DNS</para>	
 			</note>
 				
 			</listitem>
@@ -42,19 +42,17 @@
 				<para>Log in as root. All the subsequent steps should be run as root.</para>
 			</listitem>
 			<listitem>
-				<para>Ensure that the SELINUX variable in <filename>/etc/selinux/config</filename> is set to permissive.</para>
+				<para>Ensure that the SELinux variable in <filename>/etc/selinux/config</filename> is set to permissive.</para>
 			</listitem>
 			<listitem>
 				<para>Run the following command to disable <application>SELinux</application> in the current session. </para>
-				<programlisting>
-				# setenforce permissive
+				<programlisting># setenforce permissive
 				</programlisting>
 				<note> <para>Performing both of the above steps is mandatory to avoid a reboot.</para></note>
 			</listitem>
 			<listitem>
 				<para>Make sure that the Management Server can reach the Internet.</para>
-				<programlisting>
-				# ping www.google.com
+				<programlisting># ping www.google.com
 				</programlisting>
 			</listitem>
 		</orderedlist>	
