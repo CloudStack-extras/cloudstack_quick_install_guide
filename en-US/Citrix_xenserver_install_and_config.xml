@@ -69,9 +69,8 @@
 	-->
 	<section id="xenserver-physnetworking">
 		<title>Physical Networking Setup</title>
-		<para>Once XenServer has been installed you may need to do some additional network configuration.  
-		At this point in the installation, you should have a plan for what NICs the Host will have and what 
-		traffic each NIC will carry. The NICs should be cabled as necessary to implement your plan.</para>
+		<para>In most production situation once XenServer has been installed you may need to
+		do some additional network configuration. The assumption of this document is that only a single NIC is cabled and configured, and that if you are operating with multiple hosts, that the NIC which is cabled and configured is the same between hosts</para>
 		<para>The IP address assigned for the private network interface must be static. 
 		It can be set on the host itself or obtained via static DHCP.</para>
 		<para>This document will only cover the configuration of a single NIC, multi-nic, multi-vlan, and bonded NIC setups 
