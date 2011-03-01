@@ -5,6 +5,7 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-Citrix_XenServer_install_and_config">
 	<title>Citrix XenServer Installation and Configuration</title>
+	<para> If you wish to run Citrix XenServer as the underlying hypervisor read and follow the steps in this chapter. Otherwise you can continue on to the chapter on installation and configuration of KVM</para>
 	<para>Citrix XenServer 5.6 GA must be installed on the Hosts. 
 	Citrix XenServer can be downloaded from the Citrix Website 
 	(<ulink url="http://www.citrix.com/lang/English/lp/lp_1688615.asp">http://www.citrix.com/lang/English/lp/lp_1688615.asp</ulink>) 
