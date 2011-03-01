@@ -5,6 +5,9 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-KVM_Installation_and_Configuration">
 	<title>KVM Installation and Configuration</title>
+	<para>This chapter is only applicable if you are installing hosts utilizing the KVM hypervisor. If you wish to
+	utilize the XenServer hypervisor please see that chapter. If you wish to utilize the VMware Hypervisor, please refer to
+	the Installation Guide</para>
 	<important>
 		<para>All Hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). 
 		All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, count, and feature flags.
@@ -84,21 +87,10 @@ Welcome to the Cloud.com CloudStack Installer.  What would you like to do?
 	</section>
 	<section id="sect-kvmhost-physnetworkconfig">
 		<title>Physical Network Configuration</title>
-		<para>You should have a plan for how the Hosts will be cabled and which physical NICs will carry what types of traffic.  By default the CloudStack will use the device that is used for the default route.    This device will be placed in a CloudStack-created bridge.
+		<para>By default the CloudStack will use the device that is used for the default route.    This device will be placed in a CloudStack-created bridge. This guide assumes that only a single NIC will be configured and cabled, and that if you have multiple KVM hosts that the same NIC will be configured across all the hosts. 
 		</para>
-		<para>If a system has multiple NICs or bonding is desired the admin may configure the networking on the host.  The admin must create a bridge and place the desired device into the bridge.  This may be done for each of the public network and the private network.  Then the customer should edit /etc/cloud/agent/agent.properties and add values for
+		<para>Coverage of multiple NIC, bonded NIC, and other more complex networking scenarios are covered in the Install Guide
 		</para>
-		<itemizedlist>
-			<listitem>
-				<para>public.network.device</para>
-			</listitem>
-			<listitem>
-				<para>private.network.device</para>
-			</listitem>
-		</itemizedlist>
-		<para>These should be set to the name of the bridge that the user created for the respective traffic type.  For example</para>
-		<programlisting>public.network.device=publicbondbr0</programlisting>
-		<para>This should be done after the install of the software as described previously.</para>
 	</section>
 
 </chapter>
