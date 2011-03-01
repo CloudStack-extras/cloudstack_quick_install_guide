@@ -12,7 +12,7 @@
 	<pubsnumber>0</pubsnumber>
 	<abstract>
 		<para>
-			This document covers a rapid install and configure CloudStack. It does not cover every possible scenario, but describes steps to get a minimal CloudStack installation. 
+			This document covers a rapid install and configure CloudStack. It does not cover every possible scenario, but describes steps to get a minimal CloudStack installation. In particular it will cover the installation of a host, storage, and a management server all on the same machine with basic networking.  Additional hosts may be added. 
 		</para>
 	</abstract>
 	<corpauthor>
