@@ -1,0 +1,8 @@
+This is the Cloudstack Quick Install Guide. 
+It's written in DocBook XML and uses publican to build the document into human readable format. 
+
+To use publican see: https://fedorahosted.org/publican/
+
+To build this document you will also need the publican-clouddotcom brand package or you will need to change brand value in publican.cfg to brand: common 
+
+
