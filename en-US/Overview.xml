@@ -6,7 +6,7 @@
 <chapter id="chap-CloudStack_Quick_Install_Guide-Overview">
 	<title>Overview</title>
 	<para>
-		CloudStack 2.2 is a enterprise-grade open source software solution to manage the cloud. 
+		CloudStack 2.2 is an enterprise-grade open source software solution to manage your cloud infrastructure. 
 	</para>
 	<para>
 		The CloudStack consists of two types of nodes:
