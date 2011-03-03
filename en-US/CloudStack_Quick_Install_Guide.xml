@@ -17,8 +17,8 @@
 	<xi:include href="Describe_your_deployment.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
 	<xi:include href="Init_and_testing.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
         <xi:include href="Troubleshooting.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
-<!-- 	<xi:include href="Support.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
-	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> -->
-	<!--<index />-->
+ 	<xi:include href="Support.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<xi:include href="Revision_History.xml" xmlns:xi="http://www.w3.org/2001/XInclude" /> 
+	<index />
 </book>
 
