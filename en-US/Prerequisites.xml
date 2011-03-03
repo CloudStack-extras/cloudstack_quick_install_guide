@@ -6,7 +6,7 @@
 <chapter id="chap-CloudStack_Quick_Install_Guide-Prerequisites">
 	<title>Prerequisites</title>
 	<para>
-		The Cloud.com CloudStack has the following hardware and software requirements:
+		CloudStack has the following hardware and software requirements:
   <table id="tb-Prerequisites" frame='all'><title>Prerequisites</title>
         <tgroup cols='3' align='left' colsep='1' rowsep='1'>
         <colspec colnum="1" colwidth="1*"/>
