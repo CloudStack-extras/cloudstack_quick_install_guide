@@ -65,7 +65,7 @@
 				<para>Set up storage</para>
 			</listitem>
 			<listitem>
-				<para>Install Citrix XenServer/VMware vSphere/KVM</para>
+				<para>Install Citrix XenServer/KVM</para>
 			</listitem>
 			<listitem>
 				<para>Install the CloudStack Management Server</para>
