@@ -5,7 +5,7 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-Describe_your_deployment">
 	<title>Describe Your Deployment</title>
-	<para>Now your Cloud.com Management Server is running. The next step is to tell it about the hosts, storage, and network configuration that you have done in the previous sections. Launch a web browser and visit http://<replaceable>management-server-ip-address</replaceable>:8080/client</para>
+	<para>Now your CloudStack Management Server is running. The next step is to tell it about the hosts, storage, and network configuration that you have done in the previous sections. Launch a web browser and visit http://<replaceable>management-server-ip-address</replaceable>:8080/client</para>
 	<para>The default credentials are “admin” for user and “password” for password.  The domain field should be left blank.  A blank domain field defaults to the ROOT domain.</para>
 
 	<section id="dyd-addazone">
@@ -16,7 +16,7 @@
 				<para>In the left navigation tree, choose System, then Physical Resources.</para>
 			</listitem>
 			<listitem>
-				<para>Click on the + next to the Zone to add a Zone.  The Zone creation wizard will appear.</para>
+				<para>Click on the Add Zone button in the top row of the main window. The Zone creation wizard will appear.</para>
 			</listitem>
 			<listitem>
 				<para>Choose the 'Basic' network type</para>
@@ -51,7 +51,7 @@
 	</section>
 		<section id="dyd-addapod">
 			<title>Add a Pod</title>
-			<para>Enter the following details in the Add Pod dialog</para>
+			<para>Click on your newly created Zone in the left hand column and then click on the Add Pod button in the top row menu of the main window. Enter the following details in the Add Pod dialog</para>
 			<itemizedlist>
 				<listitem>
 					<para>Name: the name of the pod</para>
@@ -60,10 +60,10 @@
 					<para>Gateway: the gateway for the hosts in that pod</para>
 				</listitem>
 				<listitem>
-					<para>CIDR.  The CIDR that encompasses the subnet in the Pod.</para>
+					<para>Netmask: The netmask that encompasses the subnet in the Pod.</para>
 				</listitem>
 				<listitem>
-					<para>Reserved System IP: This is the IP range in the private network that the 
+					<para>Private IP Range: This is the IP range in the private network that the 
 					CloudStack uses to manage Secondary Storage VMs and Console Proxy VMs. These IP 
 					addresses are taken from the same subnet as computing servers. You therefore need 
 					to make sure computing servers and Management Servers use IP addresses outside of 
@@ -90,7 +90,7 @@
 		</section>
 		<section id="dyd-addcluster">
 			<title>Add a cluster</title>
-			<para>A cluster can be added by clicking on 'Add a cluster' and entering the following details:</para>
+			<para>Click on your newly added Pod in the left hand column menu, and then click on the Add Cluster button. The Add cluster dialog will appear and prompt you for the following details:</para>
 			<itemizedlist>
 				<listitem>
 					<para>Hypervisor: Select the hypervisor type</para>
@@ -102,25 +102,20 @@
 		</section>
 		<section id="dyd-addhost">
 			<title>Add hosts</title>
-			<para>Hosts can be added to a cluster.</para>
+			<para>Click on your newly-created cluster in the left hand column menu and then click on 'Add Host' to bring up the Add Host dialog. </para>
 			<orderedlist>
-				<listitem>
-					<para>Go to System -> Physical Resources -> Zone -> Pod -> Add Host.  The Add Host dialog displays.</para>
-					<mediaobject>
+					<!--<mediaobject>
 				                <imageobject>
 				                        <imagedata fileref="./images/dyd03.png" />
 				                </imageobject>
 				                <textobject><phrase>add a host dialog</phrase></textobject>
 				        </mediaobject>
-				</listitem>
+					-->
 				<listitem>
 					<para>Provide the following information in the Add Host dialog.</para>
 					<itemizedlist>
 						<listitem>
-							<para>Hypervisor: The Hypervisor type for this Host.</para>
-						</listitem>
-						<listitem>
-							<para>Cluster: This should stay at "None Available" which will cause the host to be added as standalone</para>
+							<para>Cluster: This should be the newly-created cluster.</para>
 						</listitem>
 						<listitem>
 							<para>Host name. For Xen and KVM this is the DNS name or IP address of the XenServer host or KVM host.</para>
@@ -139,7 +134,7 @@
 		<section id="dyd-addprimarystorage">
 			<title>Add Primary Storage</title>
 			<para>Next you will need to tell the system about the primary and secondary storage devices that are available. If you intend to use only local disk for your installation you can skip to Secondary Storage.</para>
-			<note><para>Local storage only works with Citrix XenServer and VMware vSphere</para></note>
+			<note><para>Local storage only works with Citrix XenServer.</para></note>
 			<important><para>Primary storage cannot be added until a Host has been added to the Cluster.</para></important>
 			<important><para>If you do not provision shared storage for primary storage, you will not be able to create 
 			additional volumes (via Storage > Volumes > Add Volume). Also, if you do not provision shared primary 
@@ -147,9 +142,9 @@
 			else you will not be able to start VMs. </para></important>
 			<orderedlist>
 				<listitem>
-					<para>Navigate to the CloudStack cluster that you want to add primary storage to.  
-					Go to System -> Physical Resources -> Zone -> Pod -> Cluster.  
-					Then choose "Add Primary Storage".</para>
+					<para>In the left hand column menu, navigate to your newly created cluster.  
+					(System -> Physical Resources -> Zone -> Pod -> Cluster.)
+					Then choose "Add Primary Storage" button from the top menu of the main window..</para>
 				</listitem>
 				<listitem>
 					<para>Provide the following information in the Add Primary Storage dialog.  </para>
@@ -161,21 +156,13 @@
 							<para>Name: The name of the storage device.</para>
 						</listitem>
 						<listitem>
-							<para>Protocol: For XenServer, choose either NFS or iSCSI.  For KVM, choose NFS.  
-							For vSphere choose either VMFS (iSCSI) or NFS.</para>
+							<para>Protocol: Choose NFS  </para>
 						</listitem>
 						<listitem>
-							<para>Server (for NFS or iSCSI). The IP address or DNS name of the storage device.</para>
+							<para>Server: The IP address or DNS name of the storage device.</para>
 						</listitem>
 						<listitem>
-							<para>Path (for NFS). In NFS this is the exported path from the server</para>
-						</listitem>
-						<listitem>
-							<para>Target IQN (iSCSI Only). In iSCSI this is the IQN of the target. 
-							For example, iqn.1986-03.com.sun:02:01ec9bb549-1271378984</para>
-						</listitem>
-						<listitem>
-							<para>Lun # (iSCSI Only). In iSCSI this is the LUN number. For example, 3</para>
+							<para>Path: This is the exported path from the server</para>
 						</listitem>
 						<listitem>
 							<para>Tags.  The comma-separated list of tags for this storage device.  
@@ -194,7 +181,7 @@
 			<note><para>Secondary Storage is always accessed by NFS</para></note>
 			<orderedlist>
 				<listitem>
-					<para>Navigate to the Zone you are building.  Choose System -> Physical Resources and then click on your Zone.</para>
+					<para>Navigate to the Zone you are building in the left hand column menu.  Choose System -> Physical Resources and then click on your Zone.</para>
 				</listitem>
 				<listitem>
 					<para>Provide exactly one Secondary Storage device per Zone.  Select "Add Secondary Storage".</para>
