@@ -24,7 +24,7 @@
 		<para>You must re-install Citrix XenServer if you are going to re-use a host from a previous install.  </para>
 	</important>
 	<important>
-		<para>The CloudStack requires XenServer 5.6.  XenServer 5.5 update 2 is not supported.  XenServer 5.6 FP1 is not supported.</para>
+		<para>The CloudStack requires XenServer 5.6.  XenServer 5.5 update 2 is not supported.  </para>
 	</important>
 	<section id="xenserver-unpw">
 		<title>Username and Password</title>
