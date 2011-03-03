@@ -46,7 +46,7 @@
 			
 	</para>
 	<para>
-		A small installation may consist of one Management Server and at least one host. 
+		A small installation may consist of at least one host which will provide primary storage, hypervisor, management server, database server, and secondary storage roles.  
 		Additional Hosts can be added after the initial installation. 
 	</para>
 
