@@ -81,34 +81,6 @@
 		</entry>
 	     </row>
 	     <row>
-		<entry>vCenter Server</entry>
-		<entry>Run VMware vCenter Software</entry>
-		<entry>
-			<itemizedlist>
-				<listitem>
-					<para>Processor – 2 CPUs 2.0GHz or higher Intel or AMD x86 processors. Processor may be higher if the database runs on the same machine.
-					</para>
-				</listitem>
-				<listitem>
-					<para>Memory – 3GB RAM. RAM requirements may be higher if your database runs on the same machine.</para>
-				</listitem>
-				<listitem>
-					<para>Disk storage – 2GB. Disk requirements may be higher if your database runs on the same machine.</para>
-				</listitem>
-				<listitem>
-					<para>Microsoft SQL Server 2005 Express disk requirements. 
-					The bundled database requires up to 2GB free disk space to decompress the installation archive.
-					</para>
-				</listitem>
-				<listitem>
-					<para>Networking – 1Gbit recommended.</para>
-				</listitem>
-			</itemizedlist>
-			See <ulink url="http://kb.vmware.com/kb/1022101">http://kb.vmware.com/kb/1022101</ulink>   for more details
-			<para> </para>
-		</entry>
-	     </row>
-	     <row>
 		<entry>	Secondary Storage</entry>
 		<entry>Provides storage for templates and snapshots</entry>
 		<entry>
@@ -145,7 +117,6 @@
 	<para>Hardware should be certified to work by the hypervisor vendor. See the vendor's documentation for more information</para>
 	<para>Red Hat maintains this information at: <ulink url="https://hardware.redhat.com">https://hardware.redhat.com</ulink></para>
 	<para>Citrix maintains Xen hardware compatibility at: <ulink url="http://hcl.xensource.com">http://hcl.xensource.com</ulink></para>
-	<para>VMware's hardware compatibility guide is at: <ulink url="http://www.vmware.com/resources/compatibility/search.php">http://www.vmware.com/resources/compatibility/search.php</ulink></para>
 </note>
 
 <important>
