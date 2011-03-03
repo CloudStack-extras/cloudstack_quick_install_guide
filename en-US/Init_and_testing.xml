@@ -5,12 +5,12 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-Init_and_testing_Chapter">
 	<title>Initialization and Testing</title>
-	<para>You should have one Java process running the Cloud.com software on the Management Server. This is the Management Server process. </para>
-	<para>After everything is configured the CloudStack will perform its initialization. This can take 30 minutes or more depending on 
+	<para>You should have one Java process running CloudStack on the Management Server. This is the Management Server process. </para>
+	<para>After everything is configured CloudStack will perform its initialization. This can take 30 minutes or more depending on 
 		the speed of your network. During this initialization process several things happen:
 		<itemizedlist>
 			<listitem>
-				<para>The CloudStack will start the Secondary Storage VM and Console Proxy VM from the system 
+				<para>CloudStack will start the Secondary Storage VM and Console Proxy VM from the system 
 				VM template downloaded into each Zone. In the System Section, Virtual Resources, System VMs 
 				section you will see the status of these VMs listed first as Creating, then as Starting, then 
 				as Running. You can click on Refresh is the upper right to update the status.
@@ -34,21 +34,13 @@
 			</listitem>
 		</itemizedlist>
 	</para>
-	<para>If these steps do not work you should see the Troubleshooting section below, or contact support for assistance.</para>
+	<para>If these steps do not work you should see the Troubleshooting section below, or ask for help in the forums or on IRC.</para>
 	<important>
 		<para>If these steps do not work further testing will not be successful.  You must resolve the above issues before proceeding.</para>
 	</important>
 	
-	<para>Once the CloudStack has performed initialization, use the following steps to try creating a new virtual machine. 
+	<para>Once CloudStack has performed initialization, use the following steps to try creating a new virtual machine. 
 		<orderedlist>
-			<listitem>
-				<para>Create a new user account.  Click on Accounts and then My Accounts.  Click "Add Account" at the top. This tool allows you to create end user accounts, domain administrators, and global administrators, as well new domains.  Follow the steps to create a new user.  
-				</para>
-			</listitem>
-			<listitem>
-				<para>Optionally logout and login as the new user.  To log in as an end user account, go to http://managementserver:8080/client. This URL displays the end user UI or the admin UI based on the access level of the authenticated account.
-				</para>
-			</listitem>
 			<listitem>
 				<para>Go to the Instances tab.  Click on My Instances. </para>
 			</listitem>
@@ -59,13 +51,13 @@
 					<para>The template selection screen requires selecting a template.  At this point you likely have only the provided CentOS template available.</para>
 				</listitem>
 				<listitem>
-					<para>Select a service offering.  Be sure that the hardware you have allows starting the selected service offering.</para>
+					<para>Select a service offering.  Be sure that your hardware has  enough available resources or the virtual machine will fail to stop. </para>
 				</listitem>
 				<listitem>
 					<para>Add any additional "data disk".  This is a second volume that will be available to but not mounted in the guest.  For example, in Linux on XenServer you will see /dev/xvdb in the guest.</para>
 				</listitem>
 				<listitem>
-					<para>Choose the primary network for the guest.  Most likely you have only one option here.  But if you entered additional networks as in the direct tagged case you may have more than one option.  You must pick exactly one.</para>
+					<para>Choose the primary network for the guest.  You will have only one option here. You must pick exactly one.</para>
 				</listitem>
 				<listitem>
 					<para>Optionally give your VM a name and a group.  The group is text that may be whatever you would like.  Click Submit and your VM will be created and started.</para>
