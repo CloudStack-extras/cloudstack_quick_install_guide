@@ -39,13 +39,13 @@
 		<para>If these steps do not work further testing will not be successful.  You must resolve the above issues before proceeding.</para>
 	</important>
 	
-	<para>Once CloudStack has performed initialization, use the following steps to try creating a new virtual machine. 
+	<para>Once CloudStack has finished initializing, use the following steps to try creating a new virtual machine. 
 		<orderedlist>
 			<listitem>
-				<para>Go to the Instances tab.  Click on My Instances. </para>
+				<para>Go to the Instances menu in the left hand column.  Click on My Instances. </para>
 			</listitem>
 			<listitem>
-				<para>Click the button to create a new VM and follow the steps in the wizard.  </para>
+				<para>Click the Add Instances button and follow the steps in the wizard.  </para>
 			<orderedlist>
 				<listitem>
 					<para>The template selection screen requires selecting a template.  At this point you likely have only the provided CentOS template available.</para>
