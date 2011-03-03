@@ -5,7 +5,7 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-Storage_setup">
 	<title>Storage Setup</title>
-	<para>The Cloud.com CloudStack is designed to work with a wide variety of commodity 
+	<para>CloudStack is designed to work with a wide variety of commodity 
 	and enterprise-grade storage. Local disk, NFS, iSCSI, and Fibre Channel, may be used 
 	depending on the hypvervisor. Storage type support for guest virtual disks differs 
 	based on hypervisor selection.
@@ -16,7 +16,7 @@
 	<section id="sect-Storage_setup-NFS">
 		<title>Linux-based NFS</title>
 		<para>This section describes how to configure an NFS export on a standard Linux installation. 
-		Instructions in this section specifically apply to RHEL/CentOS/Fedora Steps to setup other distributions may vary.
+		Instructions in this section specifically apply to RHEL/CentOS/Fedora. Steps to setup other distributions may vary.
 		</para>
 		<orderedlist>
 			<listitem>
@@ -29,7 +29,8 @@
 				configure it as an NFS export.
 				</para>
 				<programlisting>echo '/export *(rw,async,no_root_squash)' >> /etc/exports</programlisting>
-				<para>You may need to adjust the above command to suite your deployment needs.</para>
+				<para>You may need to adjust the above command to suite your deployment needs, but keep in mind
+				that each of your hosts will need access to this NFS share.</para>
 			</listitem>
 			<listitem>
 				<para>Edit the <filename>/etc/sysconfig/nfs</filename> file and uncomment the following lines.</para>
