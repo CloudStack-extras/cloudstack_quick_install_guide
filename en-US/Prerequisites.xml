@@ -119,9 +119,6 @@
 	<para>Citrix maintains Xen hardware compatibility at: <ulink url="http://hcl.xensource.com">http://hcl.xensource.com</ulink></para>
 </note>
 
-<important>
-	<para>XenServer 5.6 FP1 is not yet supported</para>
-</important>
 
 	</para>
 	
