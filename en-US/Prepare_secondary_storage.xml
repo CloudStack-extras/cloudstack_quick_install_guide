@@ -27,10 +27,6 @@
 			file system each time it runs.
 			</para>
 			<para>The command to run depends on hypervisor type. </para>
-			<para>For vSphere</para>
-			<programlisting># /usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary \
--u http://download.cloud.com/releases/2.2.0/systemvm.ova -h vmware -F
-			</programlisting>
 			<para>For KVM</para>
 			<programlisting># /usr/lib64/cloud/agent/scripts/storage/secondary/cloud-install-sys-tmplt -m /mnt/secondary \
 -u http://download.cloud.com/releases/2.2.0/systemvm.qcow2.bz2 -h kvm -F

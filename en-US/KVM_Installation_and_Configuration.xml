@@ -6,8 +6,7 @@
 <chapter id="chap-CloudStack_Quick_Install_Guide-KVM_Installation_and_Configuration">
 	<title>KVM Installation and Configuration</title>
 	<para>This chapter is only applicable if you are installing hosts utilizing the KVM hypervisor. If you wish to
-	utilize the XenServer hypervisor please see that chapter. If you wish to utilize the VMware Hypervisor, please refer to
-	the Installation Guide</para>
+	utilize the XenServer hypervisor please see that chapter.</para>
 	<important>
 		<para>All Hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). 
 		All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, count, and feature flags.
@@ -17,7 +16,7 @@
 		<title>Installing the CloudStack Agent</title>
 		<para>Each KVM Host must have the CloudStack Agent installed on it. 
 		 Install the CloudStack Agent on each Host using the following steps.  
-		All commands should be run as root.  On Fedora and RHEL6 you have to make sure that the hostname resolves in DNS or <filename>/etc/hosts</filename>.
+		All commands should be run as root.  On Fedora and RHEL you have to make sure that the hostname resolves in DNS or <filename>/etc/hosts</filename>.
 		</para>
 		<para>A Host’s host OS must also have a fully qualified domain name.  
 		Usually you can correct the lack of a FQDN by editing /etc/hosts.  
@@ -87,7 +86,7 @@ Welcome to the Cloud.com CloudStack Installer.  What would you like to do?
 	</section>
 	<section id="sect-kvmhost-physnetworkconfig">
 		<title>Physical Network Configuration</title>
-		<para>By default the CloudStack will use the device that is used for the default route.    This device will be placed in a CloudStack-created bridge. This guide assumes that only a single NIC will be configured and cabled, and that if you have multiple KVM hosts that the same NIC will be configured across all the hosts. 
+		<para>By default CloudStack will use the device that is used for the default route.    This device will be placed in a CloudStack-created bridge. This guide assumes that only a single NIC will be configured and cabled, and that if you have multiple KVM hosts that the same NIC will be configured across all the hosts. 
 		</para>
 		<para>Coverage of multiple NIC, bonded NIC, and other more complex networking scenarios are covered in the Install Guide
 		</para>

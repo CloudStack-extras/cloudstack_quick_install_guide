@@ -5,10 +5,10 @@
 ]>
 <chapter id="chap-CloudStack_Quick_Install_Guide-Management_server_install">
         <title>Management Server Installation</title>
-	<para>The Cloud.com Management Server download includes everything you need to get started, 
-	except MySQL. This includes the Cloud.com software as well as dependencies. This section 
-	describes installing one or more Management Servers with one instance of MySQL, which may 
-	be on a different node from the Management Servers. The procedure for the installation is:
+	<para>The CloudStack installation package includes everything you need to get started, 
+	except MySQL. This includes CloudStack as well as dependencies. This section 
+	describes installing a Management Servers with MySQL, which resides on the same host. 
+	The procedure for the installation is:
 		<orderedlist>
 			<listitem>
 				<para>Prepare the operating system</para>
@@ -23,7 +23,7 @@
 	</para>	
 	<section>
 		<title>Operating System Preparation</title>
-		<para>The Cloud.com Management Server requires RHEL/CentOS 5.4 64 bit or later. 
+		<para>The CloudStack Management Server requires RHEL/CentOS 5.4 64 bit or later, or Fedora 14 or later. 
 		The OS must be prepared to host the Management Server using the following steps. 
 		</para>
 		<note>
