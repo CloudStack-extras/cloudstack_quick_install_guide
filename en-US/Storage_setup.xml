@@ -64,18 +64,16 @@ STATD_OUTGOING_PORT=2020
 				<programlisting># service iptables restart</programlisting>
 			</listitem>
 			<listitem>
-				<para>Start rpcbind (a prerequisiste) and NFS</para>
-				<programlisting># service rpcbind start
-# service nfs start</programlisting>
+				<para>Start <application>NFS</application></para>
+				<programlisting># service nfs start</programlisting>
 			</listitem>
 			<listitem>
-				<para>Configure nfs and rpcbind to start on boot</para>
-				<programlisting># chkconfig rpcbind on
-# chkconfig nfs on</programlisting>
+				<para>Configure <application>NFS</application> to start on boot</para>
+				<programlisting># chkconfig nfs on</programlisting>
 			</listitem>
 		</orderedlist>
-		<para>An NFS share is now setup at <filename>/export</filename></para>
-
+		<para>A NFS share is now setup at <filename>/export</filename></para>
+                <para>If you encountered problems with setting up storage please see <xref linkend="sect-storage_troubleshooting"/></para>
 	</section>
+	
 </chapter>
-

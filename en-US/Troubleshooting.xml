@@ -98,8 +98,8 @@
 			</itemizedlist>
 		</para>
 	</section>
-	<section id="stor-troubleshooting">
-		<title>Storage Setup Troubleshootin</title>
+	<section id="sect-storage_troubleshooting">
+		<title>Storage Setup Troubleshooting</title>
 		<para>This section details some basic problems commonly seen setting up storage</para>
 		<para>If <application>NFS</application> fails to start when the command is issued there may be an issue where <application>rpcbind</application> is a dependency and needs to be started. You will also want to configure <application>rpcbind</application> to start on boot if that is the case. </para>
 		<programlisting># service rpcbind start
