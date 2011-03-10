@@ -19,17 +19,16 @@
 		All commands should be run as root.  On Fedora and RHEL you have to make sure that the hostname resolves in DNS or <filename>/etc/hosts</filename>.
 		</para>
 		<para>A Host’s host OS must also have a fully qualified domain name.  
-		Usually you can correct the lack of a FQDN by editing /etc/hosts.  
-		You will also want to make sure that the IP address associated with the hostname is 
-		the IP address of the default route table entry (usually eth0).  
-		If the hostname resolves to 127.0.0.1 guest networking will not work.
+		Usually you can correct the lack of a FQDN by editing <filename>/etc/hosts</filename>.  
+		You should make sure that the hostname is set with a line in <filename>/etc/sysconfig/network</filename> like:
+		<programlisting>HOSTNAME=<replaceable>hostname.domainname.tld</replaceable></programlisting>
 		</para>
 		<orderedlist>
 			<listitem>
 				<para>Check for a fully qualified hostname.</para>
 				<programlisting>hostname --fqdn</programlisting>
 				<para>This should return a fully qualified hostname such as "kvm1.lab.example.org".  
-				If it does not edit /etc/hosts so that it does.
+				If it does not, see the above description of files to edit until the above check works.
 				</para>
 				<!-- QUESTION Does this really solve the problem?? perhaps hostname and this is needed -->
 			</listitem>
