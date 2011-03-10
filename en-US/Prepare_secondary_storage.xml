@@ -14,9 +14,9 @@
 	<orderedlist>
 		<listitem>
 			<para>Mount secondary storage on to your Management Server. This example assumes the path on the 
-			secondary storage server is /nfs/share.
+			secondary storage server is <filename>/nfs/share</filename> and the mount point is <filename>/mnt/secondary</filename>.
 			</para>
-			<programlisting># mount -t nfs servername:/nfs/share /mnt/secondary</programlisting>
+			<programlisting># mount -t nfs <replaceable>servername</replaceable>:/nfs/share /mnt/secondary</programlisting>
 		</listitem>
 		<listitem>
 			<para>Retrieve and decompress the system VM template.  Run the script 
