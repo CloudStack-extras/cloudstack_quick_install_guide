@@ -1,0 +1,149 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "KVM Installation and Configuration"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This chapter is only applicable if you are installing hosts utilizing the KVM hypervisor. If you wish to utilize the XenServer hypervisor please see that chapter."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "All Hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, count, and feature flags."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Installing the CloudStack Agent"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Each KVM Host must have the CloudStack Agent installed on it. Install the CloudStack Agent on each Host using the following steps. All commands should be run as root. On Fedora and RHEL you have to make sure that the hostname resolves in DNS or <filename>/etc/hosts</filename>."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A Host’s host OS must also have a fully qualified domain name. Usually you can correct the lack of a FQDN by editing <filename>/etc/hosts</filename>. You should make sure that the hostname is set with a line in <filename>/etc/sysconfig/network</filename> like:"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "HOSTNAME=<replaceable>hostname.domainname.tld</replaceable>"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Check for a fully qualified hostname."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "hostname --fqdn"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This should return a fully qualified hostname such as \"kvm1.lab.example.org\". If it does not, see the above description of files to edit until the above check works."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "On RHEL6, remove qemu-kvm. The CloudStack provides a patched version."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "yum erase qemu-kvm"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Check for quotation marks (\") in any of the ifcfg-ethX files. RHEL6 may create lines like IPADDR=\"192.168.21.217\". To remove the quotation marks you can either run \"setup\" and choose to edit the network configuration or you can manually edit <filename>/etc/sysconfig/network-scripts/ifcfg-ethX</filename>. You should remove the quotation marks from all values in this file."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Disable SELinux"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Set SELinux up to be permissive by default. First, set the SELINUX variable in <filename>/etc/selinux/config</filename> to “permissive”. This ensures that the CloudStack Agent can run properly on system reboot. Then set SELinux to permissive until the system is rebooted:"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# setenforce permissive"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Install the CloudStack packages. You should have a file in the form of <filename>CloudStack-<replaceable>NNNN</replaceable>.tar.gz</filename>. Untar the file and and then run the <filename>install.sh</filename> script inside it."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# tar xzf CloudStack-2.2.0-1-centos.tar.gz\n"
+"# cd CloudStack-2.2.0-1-centos\n"
+"# ./install.sh\n"
+"Setting up the temporary repository...\n"
+"Cleaning Yum cache...\n"
+"Loaded plugins: fastestmirror\n"
+"11 metadata files removed\n"
+"Welcome to the Cloud.com CloudStack Installer.  What would you like to do?\n"
+"\n"
+"    M) Install the Management Server\n"
+"    A) Install the Agent\n"
+"    S) Install the Usage Monitor\n"
+"    D) Install the database server\n"
+"    Q) Quit\n"
+"\n"
+"    &gt; A"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Choose A to install the Agent software"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The CloudStack Agent is now installed. Later in the installation you will add this host to the CloudStack via the Management Server. This step will configure the Agent on the Host."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A Host must have a statically allocated IP address; host addition will error and fail if a dynamically-assigned address is present."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Physical Network Configuration"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "By default CloudStack will use the device that is used for the default route. This device will be placed in a CloudStack-created bridge. This guide assumes that only a single NIC will be configured and cabled, and that if you have multiple KVM hosts that the same NIC will be configured across all the hosts."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Coverage of multiple NIC, bonded NIC, and other more complex networking scenarios are covered in the Install Guide"
+msgstr ""
+

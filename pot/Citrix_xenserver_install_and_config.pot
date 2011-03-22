@@ -1,0 +1,74 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Citrix XenServer Installation and Configuration"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If you wish to run Citrix XenServer as the underlying hypervisor read and follow the steps in this chapter. Otherwise you can continue on to the chapter on installation and configuration of KVM"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Citrix XenServer 5.6 GA must be installed on the Hosts. Citrix XenServer can be downloaded from the Citrix Website (<ulink url=\"http://www.citrix.com/lang/English/lp/lp_1688615.asp\">http://www.citrix.com/lang/English/lp/lp_1688615.asp</ulink>) and installed using the Citrix XenServer Installation Guide."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "All hosts must be 64-bit and must support HVM (Intel-VT or AMD-V enabled). All Hosts within a Cluster must be homogenous. That means the CPUs must be of the same type, count, and feature flags. See <ulink url=\"http://docs.vmd.citrix.com/XenServer/4.0.1/reference/ch02.html\">http://docs.vmd.citrix.com/XenServer/4.0.1/reference/ch02.html</ulink> for more information on homogenous XenServer hosts."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You must re-install Citrix XenServer if you are going to re-use a host from a previous install."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The CloudStack requires XenServer 5.6. XenServer 5.5 update 2 is not supported."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Username and Password"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "All XenServers in a Cluster must have the same username and password as configured in the CloudStack."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Physical Networking Setup"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "In most production situation once XenServer has been installed you may need to do some additional network configuration. The assumption of this document is that only a single NIC is cabled and configured, and that if you are operating with multiple hosts, that the NIC which is cabled and configured is the same between hosts"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The IP address assigned for the private network interface must be static. It can be set on the host itself or obtained via static DHCP."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This document will only cover the configuration of a single NIC, multi-nic, multi-vlan, and bonded NIC setups are discussed in the Installation guide"
+msgstr ""
+

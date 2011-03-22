@@ -1,0 +1,29 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Support"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Cloudstack is supported by the community of Cloudstack users and contributors. You can gain access and contribute to this support by utilizing the <ulink url=\"http://cloud.com/mailing-lists\">mailing lists</ulink> or forums (<ulink url=\"http://cloud.com/forum\">http://cloud.com/forum</ulink>) and Bugzilla (<ulink url=\"http://bugs.cloud.com\">http://bugs.cloud.com</ulink>)"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Users needing commercial support should contact Cloud.com to enquire about commercial support subscriptions"
+msgstr ""
+

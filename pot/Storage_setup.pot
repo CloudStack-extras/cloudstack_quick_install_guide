@@ -1,0 +1,136 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Storage Setup"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "CloudStack is designed to work with a wide variety of commodity and enterprise-grade storage. Local disk, NFS, iSCSI, and Fibre Channel, may be used depending on the hypvervisor. Storage type support for guest virtual disks differs based on hypervisor selection."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "In this document we will only be covering simple NFS setup and configuration. Other methods are covered in the Installation Guide"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Linux-based NFS"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This section describes how to configure an NFS export on a standard Linux installation. Instructions in this section specifically apply to RHEL/CentOS/Fedora. Steps to setup other distributions may vary."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Create a directory called <filename>/export</filename>. This can each be a directory in the root partition itself or a mount point for a large disk volume."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "After <filename>/export</filename> directory is created, run the following command to configure it as an NFS export."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "echo '/export *(rw,async,no_root_squash)' &gt;&gt; /etc/exports"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You may need to adjust the above command to suite your deployment needs, but keep in mind that each of your hosts will need access to this NFS share."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Edit the <filename>/etc/sysconfig/nfs</filename> file and uncomment the following lines."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "LOCKD_TCPPORT=32803\n"
+"LOCKD_UDPPORT=32769\n"
+"MOUNTD_PORT=892\n"
+"RQUOTAD_PORT=875\n"
+"STATD_PORT=662\n"
+"STATD_OUTGOING_PORT=2020\n"
+""
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Edit the <filename>/etc/sysconfig/iptables</filename> file and add the following lines at the beginning of the INPUT chain."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "-A INPUT -m state --state NEW -p udp --dport 111 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p tcp --dport 111 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p tcp --dport 2049 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p tcp --dport 32803 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p udp --dport 32769 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p tcp --dport 892 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p udp --dport 892 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p tcp --dport 875 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p udp --dport 875 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p tcp --dport 662 -j ACCEPT\n"
+"-A INPUT -m state --state NEW -p udp --dport 662 -j ACCEPT\n"
+""
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Restart iptables"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# service iptables restart"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Start <application>NFS</application>"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# service nfs start"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Configure <application>NFS</application> to start on boot"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# chkconfig nfs on"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A NFS share is now setup at <filename>/export</filename>"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If you encountered problems with setting up storage please see <xref linkend=\"sect-storage_troubleshooting\" />"
+msgstr ""
+

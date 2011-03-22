@@ -1,0 +1,304 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Describe Your Deployment"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Now your CloudStack Management Server is running. The next step is to tell it about the hosts, storage, and network configuration that you have done in the previous sections. Launch a web browser and visit http://<replaceable>management-server-ip-address</replaceable>:8080/client"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The default credentials are “admin” for user and “password” for password. The domain field should be left blank. A blank domain field defaults to the ROOT domain."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Adding a Zone"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Begin by using these steps to add a basic zone"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "In the left navigation tree, choose System, then Physical Resources."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Click on the Add Zone button in the top row of the main window. The Zone creation wizard will appear."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Choose the 'Basic' network type"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Configure the zone"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Enter the following details in the Add Zone dialog"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Name. The name of the Zone."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "DNS 1 and 2. These are DNS servers for use by guest VMs in the Zone. These DNS servers will be accessed via the public network you will add later. The public IP addresses for the Zone must have a route to the DNS server named here."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Internal DNS 1 and 2. These are DNS servers for use by system VMs in the Zone. These DNS servers will be accessed via the private network interface of the System VMs. The private IP address you provide for the Pods must have a route to the DNS server named here."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Public?: Should be set to yes"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Add a Pod"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Click on your newly created Zone in the left hand column and then click on the Add Pod button in the top row menu of the main window. Enter the following details in the Add Pod dialog"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Name: the name of the pod"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Gateway: the gateway for the hosts in that pod"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Netmask: The netmask that encompasses the subnet in the Pod."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Private IP Range: This is the IP range in the private network that the CloudStack uses to manage Secondary Storage VMs and Console Proxy VMs. These IP addresses are taken from the same subnet as computing servers. You therefore need to make sure computing servers and Management Servers use IP addresses outside of this range. These two values combine to give the system control over a certain IP address range, and leave you in control of allocation for IP addresses in the CIDR but outside of the start and end range."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The recommended number of private IPs per Pod is 5 times the number of Clusters. The example above allocates ten IPs as if two Clusters were in place for the Pod."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Guest IP Range. The range of IP addresses that will be available for allocation to guests in this Pod. For the target of this guide, these IP addresses should be in the same CIDR range as the POD CIDR."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Guest Netmask: The netmask in use on the subnet the guests will use."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Guest Gateway: The gateway that the guests should use."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Add a cluster"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Click on your newly added Pod in the left hand column menu, and then click on the Add Cluster button. The Add cluster dialog will appear and prompt you for the following details:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Hypervisor: Select the hypervisor type"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Cluster: Enter a name for the cluster"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Add hosts"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Click on your newly-created cluster in the left hand column menu and then click on 'Add Host' to bring up the Add Host dialog."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Provide the following information in the Add Host dialog."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Cluster: This should be the newly-created cluster."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Host name. For Xen and KVM this is the DNS name or IP address of the XenServer host or KVM host."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "User name. Usually the root user"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The password for the above user"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "It may take a minute for the host to be provisioned. It should automatically display in the UI."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Add Primary Storage"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Next you will need to tell the system about the primary and secondary storage devices that are available. If you intend to use only local disk for your installation you can skip to Secondary Storage."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Local storage only works with Citrix XenServer."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Primary storage cannot be added until a Host has been added to the Cluster."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If you do not provision shared storage for primary storage, you will not be able to create additional volumes (via Storage &gt; Volumes &gt; Add Volume). Also, if you do not provision shared primary storage, you must have set system.vm.local.storage.required to true in the first part of this section or else you will not be able to start VMs."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "In the left hand column menu, navigate to your newly created cluster. (System -&gt; Physical Resources -&gt; Zone -&gt; Pod -&gt; Cluster.) Then choose \"Add Primary Storage\" button from the top menu of the main window.."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Provide the following information in the Add Primary Storage dialog."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Cluster: The Cluster for the storage device."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Name: The name of the storage device."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Protocol: Choose NFS"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Server: The IP address or DNS name of the storage device."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Path: This is the exported path from the server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Tags. The comma-separated list of tags for this storage device. It should be an equivalent set or superset of the tags on your disk offerings. It is an optional field and may be left blank."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You can add multiple primary storage servers. At least one is required"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Secondary Storage"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You will need to add secondary storage. Secondary Storage is used to store templates, ISOs, and snapshots."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Secondary Storage is always accessed by NFS"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Navigate to the Zone you are building in the left hand column menu. Choose System -&gt; Physical Resources and then click on your Zone."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Provide exactly one Secondary Storage device per Zone. Select \"Add Secondary Storage\"."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Provide the details for Secondary Storage server:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Server: The IP address of the server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Path. The exported path from the server."
+msgstr ""
+

@@ -1,0 +1,205 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Troubleshooting"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Many install problems relate to the secondary storage VM. The most commmon problems include:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "SSVM cannot reach the DNS server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "SSVM cannot reach the Management Server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "SSVM cannot reach the outside world to download templates. It contacts download.cloud.com via HTTP."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The configured DNS server cannot resolve your internal hostnames."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "E.g., you entered private-nfs.lab.example.org for secondary storage NFS, but gave a DNS server that your customers use, and that server cannot resolve private-nfs.lab.example.org."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A quick step to look for errors in the management server log is this:"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# grep -i -E 'exc|unable|fail|invalid|leak|invalid|warn' /var/log/cloud/management/management-server.log"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Troubleshooting the Secondary Storage VM"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You can troubleshoot the secondary storage VM either by running a diagnostic script or by checking the log file. The following sections detail each of these methods."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If you have corrected the problem but the template hasn’t started to download, restart the cloud service with “service cloud restart”. This will restart the default CentOS template download."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "To recover a failed SSVM after making changes that fix the root cause of the failure, you must stop the VM first and then start it. A restart merely reboots the VM without resending the configuration, which may have changed"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Running the diagnostic script"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You can log into the SSVM. To do this you have to find the Host running the SSVM, ssh into it, then ssh into the SSVM’s private IP from that host. Once you are logged in, use the following steps to run a diagnostic script."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "In the admin UI, go to Instances tab, System section."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Note the name of the Host hosting the SSVM as shown in the Host column. Also note the private IP of the SSVM as shown in the Private IP column."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "ssh into the Host using your known user and password."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "ssh into the private IP of the SSVM with the following."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# ssh -i /root/.ssh/id_rsa.cloud -p 3922 root@private-ip"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Once into the SSVM, run the following diagnostic script:"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# /usr/local/cloud/systemvm/ssvm-check.sh"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This script will test various aspects of the SSVM and report warnings and errors."
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Checking the log file"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You can also check the log file <filename>/var/log/cloud/cloud.log</filename> for any error messages"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Troubleshooting the Console-proxy VM"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If you see the below messages when you launch the Console Viewer and see this error it most likely means that the Console Proxy VM cannot connect from its private interface to port 8250 on the Management Server (or load balanced Management server pool)."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "Access is denied for console session. Please close the window"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Check these things:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Load balancer has port 8250 open"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "All Management Servers have port 8250 open"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "There is a network path from the CIDR in the Pod hosting the Console Proxy VM to the load balancer or Management Server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The \"host\" global configuration parameter is set to the load balancer if in use"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Storage Setup Troubleshooting"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This section details some basic problems commonly seen setting up storage"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "If <application>NFS</application> fails to start when the command is issued there may be an issue where <application>rpcbind</application> is a dependency and needs to be started. You will also want to configure <application>rpcbind</application> to start on boot if that is the case."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# service rpcbind start\n"
+"# chkconfig rpcbind on"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "You should now be able to restart NFS"
+msgstr ""
+

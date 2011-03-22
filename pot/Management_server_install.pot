@@ -1,0 +1,224 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Management Server Installation"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The CloudStack installation package includes everything you need to get started, except MySQL. This includes CloudStack as well as dependencies. This section describes installing a Management Servers with MySQL, which resides on the same host. The procedure for the installation is:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Prepare the operating system"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Install and configure the management server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Install and configure MySQL"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Operating System Preparation"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The CloudStack Management Server requires RHEL/CentOS 5.4 64 bit or later, or Fedora 14 or later. The OS must be prepared to host the Management Server using the following steps."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "NTP configuration is highly recommended. Installing and configuring <application>ntp</application> or <application>chrony</application> should be done on all hosts"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Edit the <filename>/etc/hosts</filename> file to make sure that the Management Server has a fully-qualified host name that resolves to an IP address."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The above will make the management server work, but in a production environment the host name should be configured via DNS"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Log in as root. All the subsequent steps should be run as root."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Ensure that the SELinux variable in <filename>/etc/selinux/config</filename> is set to permissive."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Run the following command to disable <application>SELinux</application> in the current session."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# setenforce permissive\n"
+"				"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Performing both of the above steps is mandatory to avoid a reboot."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Make sure that the Management Server can reach the Internet."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# ping www.google.com\n"
+"				"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Installation"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This section describes the procedure for performing a single node install where the Management Server and MySQL are on a single, shared OS instance. More complicated installations are detailed in the Installation Guide"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Management Server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Install the CloudStack packages. You should have a file in the form of <filename>CloudStack-<replaceable>NNNN</replaceable>.tar.gz</filename>. Untar the file and then run the <filename>install.sh</filename> script inside it:"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# tar xzf CloudStack-2.2.0-1-centos.tar.gz\n"
+"# cd CloudStack-2.2.0-1-centos\n"
+"# ./install.sh\n"
+"Setting up the temporary repository...\n"
+"Cleaning Yum cache...\n"
+"Loaded plugins: fastestmirror\n"
+"11 metadata files removed\n"
+"Welcome to the Cloud.com CloudStack Installer.  What would you like to do?\n"
+"\n"
+"    M) Install the Management Server\n"
+"    A) Install the Agent\n"
+"    S) Install the Usage Monitor\n"
+"    D) Install the database server\n"
+"    Q) Quit\n"
+"\n"
+"    &gt; M"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Choose \"M\" to install the Management Server software"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Database"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Run <filename>install.sh</filename> again and choose \"D\" to install <application>MySQL</application>"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# ./install.sh\n"
+"Setting up the temporary repository...\n"
+"Cleaning Yum cache...\n"
+"Loaded plugins: fastestmirror\n"
+"11 metadata files removed\n"
+"Welcome to the Cloud.com CloudStack Installer.  What would you like to do?\n"
+"\n"
+"    A) Install the Agent\n"
+"    S) Install the Usage Monitor\n"
+"    D) Install the database server\n"
+"    U) Upgrade the CloudStack packages installed on this computer\n"
+"    R) Stop any running CloudStack services and remove the CloudStack packages from this computer\n"
+"    Q) Quit\n"
+"\n"
+"    &gt; D"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Edit the <application>MySQL</application> configuration (<filename>/etc/my.cnf</filename>) and insert the following lines in the [mysqld] section. You can put these lines below the datadir line."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "innodb_rollback_on_timeout=1\n"
+"innodb_lock_wait_timeout=600\n"
+"max_connections=350\n"
+"			"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Restart the MySQL service and configure it to start on boot"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# service mysqld restart\n"
+"# chkconfig mysqld on"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Use the following script to create the cloud user on the database with a password of your choice. This script deploys the database using the credentials in the deploy-as parameters. By default on RHEL/CentOS/Fedora MySQL is installed with no root password. If you have set a password you will need to postpend that to the deploy-as parameter as in \"--deploy-as=root:<replaceable>password</replaceable>"
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# cloud-setup-databases cloud:<replaceable>dbpassword</replaceable>@localhost --deploy-as=root"
+msgstr ""
+
+#. Tag: title
+#, no-c-format
+msgid "Final configuration steps"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Configure the OS for the Management Server using the following command. This command will set up iptables, sudoers, and start the Management Server."
+msgstr ""
+
+#. Tag: programlisting
+#, no-c-format
+msgid "# cloud-setup-management"
+msgstr ""
+

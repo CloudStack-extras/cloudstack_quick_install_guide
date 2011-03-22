@@ -1,0 +1,104 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "Overview"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "CloudStack 2.2 is an enterprise-grade open source software solution to manage your cloud infrastructure."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "The CloudStack consists of two types of nodes:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "<application>CloudStack Management Server</application>: The server in this node is the resource manager in the system. It controls allocation of virtual machines to servers in the Host and assigns storage and IP addresses to the virtual machine instances."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "<application>CloudStack Host</application>: The servers in this node run the virtual machine instances. Servers are grouped into Zones, Pods, and Clusters."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "<application>Zone</application>: A Zone consists of multiple Pods. Typically a Zone is a datacenter"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "<application>Pod</application>: A Pod is usually one rack of hardware and includes one or more clusters, and a layer-2 switch. The Pod is defined by a network subnet"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "<application>Cluster</application>: A Cluster consists of one or more Hosts and Primary Storage"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "A small installation may consist of at least one host which will provide primary storage, hypervisor, management server, database server, and secondary storage roles. Additional Hosts can be added after the initial installation."
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This guide is designed to rapidly install and configure a small installation. Discussions of deployement architecture, high availability and other advanced topics are covered in the Installation Guide. The topics covered in this document are:"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Prerequisites"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Set up networking"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Set up storage"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Install Citrix XenServer/KVM"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Install the CloudStack Management Server"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Prepare secondary storage"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Describe the deployment"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "Test the deployment"
+msgstr ""
+

@@ -1,0 +1,29 @@
+# 
+# AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 0\n"
+"POT-Creation-Date: 2011-03-22T00:08:25\n"
+"PO-Revision-Date: 2011-03-22T00:08:25\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: None\n"
+"MIME-Version: 1.0\n"
+"Content-Type: application/x-publican; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#. Tag: title
+#, no-c-format
+msgid "CloudStack Quick Install Guide"
+msgstr ""
+
+#. Tag: productname
+#, no-c-format
+msgid "CloudStack"
+msgstr ""
+
+#. Tag: para
+#, no-c-format
+msgid "This document covers a rapid install and configure CloudStack. It does not cover every possible scenario, but describes steps to get a minimal CloudStack installation. In particular it will cover the installation of a host, storage, and a management server all on the same machine with basic networking. Additional hosts may be added."
+msgstr ""
+
